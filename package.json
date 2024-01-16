@@ -4,7 +4,7 @@
   "description": "> Coming soon (around 2024-01-11). 🚀🚀🚀",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "lint": "npm -ws run lint"
   },
   "keywords": [],
   "repository": {
