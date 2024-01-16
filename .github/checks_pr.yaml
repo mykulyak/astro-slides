@@ -1,0 +1,21 @@
+name: PR checks
+on:
+  pull_request: {}
+  workflow_dispatch: {}
+jobs:
+  check_website:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: src/website
+    steps:
+      - uses: actions/checkout@v3
+      - uses: actions/setup-node@v3
+        with:
+          node-version: 18.x
+      - name: Install dependencies
+        run: npm install
+      - name: Lint the project
+        run: npm run lint
+      - name: Build the project
+        run: npm run build

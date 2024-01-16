@@ -1,4 +1,6 @@
 ---
+import Viewport from "./Viewport.astro";
+
 interface Props {
   initialSlide?: number;
 }
@@ -7,22 +9,14 @@ const { initialSlide } = Astro.props;
 ---
 
 <div
-  data-astro-slides-kind="presentation"
+  data-astro-slides-presentation
   data-astro-slides-current={initialSlide}
   class="w-full h-full relative flex justify-center items-center font-sans"
 >
-  <div class="viewport">
+  <Viewport>
     <slot />
-  </div>
+  </Viewport>
 </div>
-
-<style>
-  .viewport {
-    width: var(--as-slide-width);
-    height: var(--as-slide-height);
-    transform: scale(var(--as-scale));
-  }
-</style>
 
 <script>
   interface HTMLPresentationElement extends HTMLElement {
@@ -31,23 +25,9 @@ const { initialSlide } = Astro.props;
     };
   }
 
-  // TODO optimize for full screen mode, use screen.availWidth and screen.availHeight
-  // 8:5 ratio
-  // const SLIDE_WIDTH = 960;
-  // const SLIDE_HEIGHT = 600;
-
-  const SLIDE_WIDTH = 1600;
-  const SLIDE_HEIGHT = 900;
-
-  const CSS_SLIDE_WIDTH = "--as-slide-width";
-  const CSS_SLIDE_HEIGHT = "--as-slide-height";
-  const CSS_WINDOW_WIDTH = "--as-window-width";
-  const CSS_WINDOW_HEIGHT = "--as-window-height";
-  const CSS_SCALE = "--as-scale";
-
   const DATA_ATTR_PREFIX = "data-astro-slides";
-  const PRESENTATION_SELECTOR = `[${DATA_ATTR_PREFIX}-kind="presentation"]`;
-  const SLIDE_SELECTOR = `[${DATA_ATTR_PREFIX}-kind="slide"]`;
+  const PRESENTATION_SELECTOR = `[${DATA_ATTR_PREFIX}-presentation]`;
+  const SLIDE_SELECTOR = `[${DATA_ATTR_PREFIX}-slide]`;
 
   const DATASET_SLIDES_CURRENT = "astroSlidesCurrent";
 
@@ -73,10 +53,6 @@ const { initialSlide } = Astro.props;
         (slide) => slide.style.display
       );
 
-      this.changeSlide();
-      this.handleResize();
-
-      window.addEventListener("resize", this.handleResize);
       document.addEventListener(EVENT_NEXT_SLIDE, this.handleNextSlide);
       document.addEventListener(EVENT_PREV_SLIDE, this.handlePreviousSlide);
 
@@ -113,17 +89,6 @@ const { initialSlide } = Astro.props;
         })
       );
     }
-
-    handleResize = () => {
-      const scaleX = window.innerWidth / SLIDE_WIDTH;
-      const scaleY = window.innerHeight / SLIDE_HEIGHT;
-      const scale = Math.min(scaleX, scaleY);
-      this.elem.style.setProperty(CSS_SLIDE_WIDTH, `${SLIDE_WIDTH}px`);
-      this.elem.style.setProperty(CSS_SLIDE_HEIGHT, `${SLIDE_HEIGHT}px`);
-      this.elem.style.setProperty(CSS_WINDOW_WIDTH, `${window.innerWidth}px`);
-      this.elem.style.setProperty(CSS_WINDOW_HEIGHT, `${window.innerHeight}px`);
-      this.elem.style.setProperty(CSS_SCALE, `${scale}`);
-    };
 
     handlePreviousSlide = () => {
       const currentSlide = this.elem.dataset[DATASET_SLIDES_CURRENT] || "0";

@@ -3,8 +3,8 @@ import Slide from "@components/Slide.astro";
 import TextPlaceholder from "@components/placeholders/Text.astro";
 ---
 
-<Slide>
-  <div>
+<Slide class="flex items-center justify-center bg-slate-100">
+  <div class="bg-slate-200 text-[90px]">
     <slot name="title">
       <TextPlaceholder>This is the <code>title</code> slot</TextPlaceholder>
     </slot>
