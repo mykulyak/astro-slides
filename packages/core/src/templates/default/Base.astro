@@ -1,0 +1,13 @@
+---
+import Slide from "@components/Slide.astro";
+
+interface Props {
+  class?: string;
+}
+
+const { class: userClass } = Astro.props;
+---
+
+<Slide class={`px-[55px] pt-[80px] pb-[100px] ${userClass ? userClass : ""}`}>
+  <slot />
+</Slide>

@@ -1,0 +1,48 @@
+---
+import Slide from "@components/Slide.astro";
+import TextPlaceholder from "@components/placeholders/Text.astro";
+import ContentPlaceholder from "@components/placeholders/Content.astro";
+
+interface Props {
+  variant?: "left" | "right";
+}
+
+const { variant = "left" } = Astro.props;
+---
+
+<Slide
+  class={variant === "left"
+    ? "slide-vertical-title-and-text-left"
+    : "slide-vertical-title-and-text-right"}
+>
+  <div class={variant === "left" ? "" : "order-1"}>
+    <div class="rotate-90">
+      <slot name="title">
+        <TextPlaceholder>
+          This is the <code>title</code> slot
+        </TextPlaceholder>
+      </slot>
+    </div>
+  </div>
+  <div class={variant == "left" ? "order-1" : ""}>
+    <slot name="content">
+      <ContentPlaceholder>
+        This is the <code>title</code> slot
+      </ContentPlaceholder>
+    </slot>
+  </div>
+</Slide>
+
+<style is:global>
+  .slide-vertical-title-and-text-left {
+    display: grid;
+    grid-template-columns: 1fr 4fr;
+    grid-template-rows: 1fr;
+  }
+
+  .slide-vertical-title-and-text-right {
+    display: grid;
+    grid-template-columns: 4fr 1fr;
+    grid-template-rows: 1fr;
+  }
+</style>

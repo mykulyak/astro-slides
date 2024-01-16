@@ -1,0 +1,75 @@
+---
+import Card from "./Card.astro";
+import TitleSlide from "../TitleSlide.astro";
+import TitleAndContent from "../TitleAndContent.astro";
+import SectionHeader from "../SectionHeader.astro";
+import TwoContent from "../TwoContent.astro";
+import TitleOnly from "../TitleOnly.astro";
+import Blank from "../Blank.astro";
+import ContentWithCaption from "../ContentWithCaption.astro";
+import VerticalTitleAndText from "../VerticalTitleAndText.astro";
+import MainPoint from "../MainPoint.astro";
+import BigNumber from "../BigNumber.astro";
+---
+
+<section class="w-full h-full p-4 grid grid-rows-4 grid-cols-3 gap-4">
+  <Card>
+    <TitleSlide />
+    <Fragment slot="title">
+      <a href="slides/title-slide">Title Slide</a>
+    </Fragment>
+  </Card>
+  <Card>
+    <TitleAndContent />
+    <Fragment slot="title">
+      <a href="slides/title-and-content">Title and Content</a>
+    </Fragment>
+  </Card>
+  <Card>
+    <SectionHeader />
+    <Fragment slot="title">
+      <a href="slides/section-header">Section Header</a>
+    </Fragment>
+  </Card>
+
+  <Card>
+    <TwoContent />
+    <Fragment slot="title">
+      <a href="slides/two-content">Two Content</a>
+    </Fragment>
+  </Card>
+  <Card>
+    <TitleOnly />
+    <Fragment slot="title"><a href="slides/title-only">Title Only</a></Fragment>
+  </Card>
+  <Card>
+    <Blank />
+    <Fragment slot="title"><a href="slides/blank">Blank</a></Fragment>
+  </Card>
+
+  <Card>
+    <ContentWithCaption />
+    <Fragment slot="title">
+      <a href="slides/content-with-caption">Content with Caption</a>
+    </Fragment>
+  </Card>
+  <Card>
+    <VerticalTitleAndText />
+    <Fragment slot="title">
+      <a href="slides/vertical-title-and-text">Vertical Title and Text</a>
+    </Fragment>
+  </Card>
+  <Card>
+    <MainPoint />
+    <Fragment slot="title">
+      <a href="slides/main-point">Main Point</a>
+    </Fragment>
+  </Card>
+
+  <Card>
+    <BigNumber />
+    <Fragment slot="title">
+      <a href="slides/big-number">Big Number</a>
+    </Fragment>
+  </Card>
+</section>

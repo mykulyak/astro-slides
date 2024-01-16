@@ -1,0 +1,22 @@
+{
+  "name": "@mykulyak/astro-slides-monorepo",
+  "version": "1.0.0",
+  "description": "> Coming soon (around 2024-01-11). 🚀🚀🚀",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "repository": {
+    "type": "git+https",
+    "url": "git+https://github.com/mykulyak/astro-slides.git"
+  },
+  "author": {
+    "name": "Andriy Mykulyak",
+    "email": "mykulyak@gmail.com"
+  },
+  "license": "MIT",
+  "workspaces": [
+    "packages/*"
+  ]
+}

@@ -1,0 +1,33 @@
+{
+  "name": "@mykulyak/astro-slides",
+  "version": "0.1.0",
+  "description": "Great presentations with Astro",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "astro": "astro",
+    "build": "astro build",
+    "dev": "astro dev",
+    "lint": "astro check",
+    "preview": "astro preview",
+    "start": "astro dev"
+  },
+  "repository": {
+    "type": "git+https",
+    "url": "git+https://github.com/mykulyak/astro-slides.git"
+  },
+  "author": {
+    "name": "Andriy Mykulyak",
+    "email": "mykulyak@gmail.com"
+  },
+  "license": "MIT",
+  "devDependencies": {
+    "typescript": "^5.3.3"
+  },
+  "dependencies": {
+    "@astrojs/tailwind": "^5.1.0",
+    "astro": "^4.1.2",
+    "astro-icon": "^1.0.2",
+    "tailwindcss": "^3.4.1"
+  }
+}

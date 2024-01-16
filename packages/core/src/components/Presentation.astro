@@ -1,0 +1,157 @@
+---
+interface Props {
+  initialSlide?: number;
+}
+
+const { initialSlide } = Astro.props;
+---
+
+<div
+  data-astro-slides-kind="presentation"
+  data-astro-slides-current={initialSlide}
+  class="w-full h-full relative flex justify-center items-center font-sans"
+>
+  <div class="viewport">
+    <slot />
+  </div>
+</div>
+
+<style>
+  .viewport {
+    width: var(--as-slide-width);
+    height: var(--as-slide-height);
+    transform: scale(var(--as-scale));
+  }
+</style>
+
+<script>
+  interface HTMLPresentationElement extends HTMLElement {
+    astroSlides: {
+      presentation: PresentationController;
+    };
+  }
+
+  // TODO optimize for full screen mode, use screen.availWidth and screen.availHeight
+  // 8:5 ratio
+  // const SLIDE_WIDTH = 960;
+  // const SLIDE_HEIGHT = 600;
+
+  const SLIDE_WIDTH = 1600;
+  const SLIDE_HEIGHT = 900;
+
+  const CSS_SLIDE_WIDTH = "--as-slide-width";
+  const CSS_SLIDE_HEIGHT = "--as-slide-height";
+  const CSS_WINDOW_WIDTH = "--as-window-width";
+  const CSS_WINDOW_HEIGHT = "--as-window-height";
+  const CSS_SCALE = "--as-scale";
+
+  const DATA_ATTR_PREFIX = "data-astro-slides";
+  const PRESENTATION_SELECTOR = `[${DATA_ATTR_PREFIX}-kind="presentation"]`;
+  const SLIDE_SELECTOR = `[${DATA_ATTR_PREFIX}-kind="slide"]`;
+
+  const DATASET_SLIDES_CURRENT = "astroSlidesCurrent";
+
+  const EVENT_PREFIX = "astro-slides";
+  const EVENT_NEXT_SLIDE = `${EVENT_PREFIX}:next-slide`;
+  const EVENT_PREV_SLIDE = `${EVENT_PREFIX}:prev-slide`;
+  const EVENT_SLIDE_CHANGED = `${EVENT_PREFIX}:slide-changed`;
+
+  export class PresentationController {
+    private elem: HTMLPresentationElement;
+    private slides: HTMLElement[];
+    private cachedDisplay: string[];
+
+    static initialize(elem: HTMLPresentationElement) {
+      const presentation = new PresentationController(elem);
+      elem.astroSlides = { presentation };
+    }
+
+    private constructor(elem: HTMLPresentationElement) {
+      this.elem = elem;
+      this.slides = Array.from(this.elem.querySelectorAll(SLIDE_SELECTOR));
+      this.cachedDisplay = Array.from(this.slides).map(
+        (slide) => slide.style.display
+      );
+
+      this.changeSlide();
+      this.handleResize();
+
+      window.addEventListener("resize", this.handleResize);
+      document.addEventListener(EVENT_NEXT_SLIDE, this.handleNextSlide);
+      document.addEventListener(EVENT_PREV_SLIDE, this.handlePreviousSlide);
+
+      document.addEventListener("keyup", (event) => {
+        if (event.key === "ArrowLeft") {
+          document.dispatchEvent(new CustomEvent(EVENT_PREV_SLIDE));
+        } else if (event.key === "ArrowRight") {
+          document.dispatchEvent(new CustomEvent(EVENT_NEXT_SLIDE));
+        }
+      });
+    }
+
+    changeSlide() {
+      const currentSlide = this.elem.dataset[DATASET_SLIDES_CURRENT] || "0";
+      if (currentSlide != null) {
+        const slideIndex = parseInt(currentSlide, 10);
+        if (!isNaN(slideIndex)) {
+          this.slides.forEach((slide, index) => {
+            if (index === slideIndex) {
+              slide.style.display = this.cachedDisplay[index];
+            } else {
+              slide.style.display = "none";
+            }
+          });
+        }
+      }
+
+      document.dispatchEvent(
+        new CustomEvent(EVENT_SLIDE_CHANGED, {
+          detail: {
+            currentSlide: this.elem.dataset[DATASET_SLIDES_CURRENT],
+            totalSlides: this.slides.length.toString(),
+          },
+        })
+      );
+    }
+
+    handleResize = () => {
+      const scaleX = window.innerWidth / SLIDE_WIDTH;
+      const scaleY = window.innerHeight / SLIDE_HEIGHT;
+      const scale = Math.min(scaleX, scaleY);
+      this.elem.style.setProperty(CSS_SLIDE_WIDTH, `${SLIDE_WIDTH}px`);
+      this.elem.style.setProperty(CSS_SLIDE_HEIGHT, `${SLIDE_HEIGHT}px`);
+      this.elem.style.setProperty(CSS_WINDOW_WIDTH, `${window.innerWidth}px`);
+      this.elem.style.setProperty(CSS_WINDOW_HEIGHT, `${window.innerHeight}px`);
+      this.elem.style.setProperty(CSS_SCALE, `${scale}`);
+    };
+
+    handlePreviousSlide = () => {
+      const currentSlide = this.elem.dataset[DATASET_SLIDES_CURRENT] || "0";
+      const slideIndex = parseInt(currentSlide, 10);
+      if (!isNaN(slideIndex) && slideIndex > 0) {
+        this.elem.dataset[DATASET_SLIDES_CURRENT] = (slideIndex - 1).toString();
+      }
+      this.changeSlide();
+    };
+
+    handleNextSlide = () => {
+      const currentSlide = this.elem.dataset[DATASET_SLIDES_CURRENT] || "0";
+      let slideIndex = parseInt(currentSlide, 10);
+      if (isNaN(slideIndex)) {
+        slideIndex = 0;
+      }
+      if (slideIndex + 1 < this.slides.length) {
+        this.elem.dataset[DATASET_SLIDES_CURRENT] = (slideIndex + 1).toString();
+      }
+      this.changeSlide();
+    };
+  }
+
+  window.addEventListener("load", () => {
+    document
+      .querySelectorAll(PRESENTATION_SELECTOR)
+      .forEach((elem) =>
+        PresentationController.initialize(elem as HTMLPresentationElement)
+      );
+  });
+</script>

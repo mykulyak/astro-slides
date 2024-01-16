@@ -1,0 +1,12 @@
+---
+import Slide from "@components/Slide.astro";
+import TextPlaceholder from "@components/placeholders/Text.astro";
+---
+
+<Slide>
+  <div>
+    <slot name="title">
+      <TextPlaceholder>This is the <code>title</code> slot</TextPlaceholder>
+    </slot>
+  </div>
+</Slide>

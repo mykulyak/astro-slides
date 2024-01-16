@@ -1,0 +1,29 @@
+---
+import Slide from "@components/Slide.astro";
+import TextPlaceholder from "@components/placeholders/Text.astro";
+import ContentPlaceholder from "@components/placeholders/Content.astro";
+---
+
+<Slide class="grid grid-cols-2 grid-rows-1">
+  <div>
+    <slot name="title">
+      <TextPlaceholder>
+        This is the <code>title</code> slot
+      </TextPlaceholder>
+    </slot>
+  </div>
+  <div class="row-span-2">
+    <slot name="content">
+      <ContentPlaceholder>
+        This is the <code>title</code> slot
+      </ContentPlaceholder>
+    </slot>
+  </div>
+  <div>
+    <slot name="description">
+      <TextPlaceholder>
+        This is the <code>description</code> slot
+      </TextPlaceholder>
+    </slot>
+  </div>
+</Slide>

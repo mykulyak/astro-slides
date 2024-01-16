@@ -1,0 +1,14 @@
+---
+interface Props {
+  class?: string;
+}
+
+const { class: userClass } = Astro.props;
+---
+
+<section
+  data-astro-slides-kind="slide"
+  class:list={["w-full h-full", userClass]}
+>
+  <slot />
+</section>
