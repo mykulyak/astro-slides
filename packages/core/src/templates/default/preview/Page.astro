@@ -16,60 +16,70 @@ import BigNumber from "../BigNumber.astro";
   <Card>
     <TitleSlide />
     <Fragment slot="title">
-      <a href="slides/title-slide">Title Slide</a>
+      <a href="title-slide">Title Slide</a>
     </Fragment>
   </Card>
   <Card>
     <TitleAndContent />
     <Fragment slot="title">
-      <a href="slides/title-and-content">Title and Content</a>
+      <a href="title-and-content">Title and Content</a>
     </Fragment>
   </Card>
   <Card>
     <SectionHeader />
     <Fragment slot="title">
-      <a href="slides/section-header">Section Header</a>
+      <a href="section-header">Section Header</a>
     </Fragment>
   </Card>
 
   <Card>
     <TwoContent />
     <Fragment slot="title">
-      <a href="slides/two-content">Two Content</a>
+      <a href="two-content">Two Content</a>
     </Fragment>
   </Card>
   <Card>
     <TitleOnly />
-    <Fragment slot="title"><a href="slides/title-only">Title Only</a></Fragment>
+    <Fragment slot="title">
+      <a href="title-only">Title Only</a>
+    </Fragment>
   </Card>
   <Card>
     <Blank />
-    <Fragment slot="title"><a href="slides/blank">Blank</a></Fragment>
+    <Fragment slot="title">
+      <a href="blank">Blank</a>
+    </Fragment>
   </Card>
 
   <Card>
     <ContentWithCaption />
     <Fragment slot="title">
-      <a href="slides/content-with-caption">Content with Caption</a>
+      <a href="content-with-caption">Content with Caption</a>
     </Fragment>
   </Card>
   <Card>
     <VerticalTitleAndText />
     <Fragment slot="title">
-      <a href="slides/vertical-title-and-text">Vertical Title and Text</a>
+      <a href="vertical-title-and-text-left">Vertical Title and Text</a>
+    </Fragment>
+  </Card>
+
+  <Card>
+    <VerticalTitleAndText variant="right" />
+    <Fragment slot="title">
+      <a href="vertical-title-and-text-right">Vertical Title and Text</a>
     </Fragment>
   </Card>
   <Card>
     <MainPoint />
     <Fragment slot="title">
-      <a href="slides/main-point">Main Point</a>
+      <a href="main-point">Main Point</a>
     </Fragment>
   </Card>
-
   <Card>
     <BigNumber />
     <Fragment slot="title">
-      <a href="slides/big-number">Big Number</a>
+      <a href="big-number">Big Number</a>
     </Fragment>
   </Card>
 </section>
