@@ -1,0 +1,22 @@
+{
+  "extends": "astro/tsconfigs/strict",
+  "compilerOptions": {
+    "strictNullChecks": true,
+    "baseUrl": "src",
+    "types": [
+      "astro/client",
+      "node/types"
+    ],
+    "paths": {
+      "@components/*": [
+        "components/*"
+      ],
+      "@templates/*": [
+        "templates/*"
+      ],
+      "@pages/*": [
+        "pages/*"
+      ]
+    }
+  }
+}

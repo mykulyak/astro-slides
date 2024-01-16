@@ -1,0 +1,62 @@
+<div class="m-4 flex flex-col gap-2 relative" data-astro-slides-thumbnail>
+  <div class="flex-grow shadow flex" data-astro-slides-viewport>
+    <div>
+      <slot />
+    </div>
+  </div>
+  <h2 class="text-center mt-1 flex-grow-0 shrink-1"><slot name="title" /></h2>
+</div>
+
+<style>
+  [data-astro-slides-viewport] {
+    width: var(--as-slide-width);
+    height: var(--as-slide-height);
+    transform: scale(var(--as-scale));
+  }
+</style>
+
+<script>
+  // viewport scaling
+
+  const SLIDE_WIDTH = 1600;
+  const SLIDE_HEIGHT = 900;
+
+  // const SLIDE_WIDTH = 960;
+  // const SLIDE_HEIGHT = 600;
+
+  const CSS_SLIDE_WIDTH = "--as-slide-width";
+  const CSS_SLIDE_HEIGHT = "--as-slide-height";
+  const CSS_WINDOW_WIDTH = "--as-window-width";
+  const CSS_WINDOW_HEIGHT = "--as-window-height";
+  const CSS_SCALE = "--as-scale";
+
+  const resizeThumbnails = () => {
+    document
+      .querySelectorAll("[data-astro-slides-thumbnail]")
+      .forEach((elem) => {
+        const elemW = (elem as HTMLElement).offsetWidth;
+        const elemH = (elem as HTMLElement).offsetHeight;
+        const scaleX = elemW / SLIDE_WIDTH; // window.innerWidth / SLIDE_WIDTH;
+        const scaleY = elemH / SLIDE_HEIGHT; //  window.innerHeight / SLIDE_HEIGHT;
+        const scale = Math.min(scaleX, scaleY);
+
+        (elem as HTMLElement).style.setProperty(
+          CSS_SLIDE_WIDTH,
+          `${SLIDE_WIDTH}px`
+        );
+        (elem as HTMLElement).style.setProperty(
+          CSS_SLIDE_HEIGHT,
+          `${SLIDE_HEIGHT}px`
+        );
+        (elem as HTMLElement).style.setProperty(CSS_WINDOW_WIDTH, `${elemW}px`);
+        (elem as HTMLElement).style.setProperty(
+          CSS_WINDOW_HEIGHT,
+          `${elemH}px`
+        );
+        (elem as HTMLElement).style.setProperty(CSS_SCALE, `${scale}`);
+      });
+  };
+
+  window.addEventListener("load", resizeThumbnails);
+  window.addEventListener("resize", resizeThumbnails);
+</script>

@@ -1,0 +1,16 @@
+---
+import Slide from "@components/Slide.astro";
+import TextPlaceholder from "@components/placeholders/Text.astro";
+
+// TODO currently spacings are optimized for 16:9 aspect ratio.
+// TODO Make them optimal for every common aspect ratio.
+---
+
+<Slide class="px-[55px] pt-[80px] pb-[100px] flex flex-col gap-[8px] items-stretch">
+  <div class="flex-grow text-[130px] text-center align-bottom">
+    <slot name="title" /><TextPlaceholder />
+  </div>
+  <div class="flex-grow text-[70px] text-center">
+    <slot name="subtitle" /><TextPlaceholder />
+  </div>
+</Slide>

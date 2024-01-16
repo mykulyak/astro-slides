@@ -1,0 +1,19 @@
+---
+import Slide from "@components/Slide.astro";
+import TextPlaceholder from "@components/placeholders/Text.astro";
+---
+
+<Slide class="grid grid-rows-2 gap-[16px]">
+  <div class="text-[270px] text-center">
+    <slot name="number">
+      <TextPlaceholder><code>number</code></TextPlaceholder>
+    </slot>
+  </div>
+  <div class="text-[45px] text-center">
+    <slot name="description">
+      <TextPlaceholder>
+        This is the <code>description</code> slot
+      </TextPlaceholder>
+    </slot>
+  </div>
+</Slide>

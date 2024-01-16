@@ -1,0 +1,21 @@
+---
+import Slide from "@components/Slide.astro";
+import TextPlaceholder from "@components/placeholders/Text.astro";
+---
+
+<Slide class="flex flex-col gap-[20px]">
+  <div class="text-[64px] p-[16px]">
+    <slot name="title">
+      <TextPlaceholder>
+        This is the <code>title</code> slot
+      </TextPlaceholder>
+    </slot>
+  </div>
+  <div class="text-[45px] flex-grow p-[16px]">
+    <slot name="content">
+      <TextPlaceholder>
+        This is the <code>content</code> slot
+      </TextPlaceholder>
+    </slot>
+  </div>
+</Slide>

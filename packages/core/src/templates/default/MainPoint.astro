@@ -1,0 +1,12 @@
+---
+import Slide from "@components/Slide.astro";
+import TextPlaceholder from "@components/placeholders/Text.astro";
+---
+
+<Slide class="flex">
+  <div class="text-[120px] max-w-[1120px]">
+    <slot name="content">
+      <TextPlaceholder>This is the <code>content</code> slot</TextPlaceholder>
+    </slot>
+  </div>
+</Slide>
