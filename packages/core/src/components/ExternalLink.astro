@@ -1,0 +1,10 @@
+---
+interface Props {
+  class?: string;
+  url: string;
+}
+
+const { class: userClass, url } = Astro.props;
+---
+
+<a href={url} class={userClass} target="_blank"><slot /></a>
