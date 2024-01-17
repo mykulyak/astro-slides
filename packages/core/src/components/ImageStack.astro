@@ -1,0 +1,41 @@
+---
+import type { ImageMetadata } from "astro";
+import { Image } from "astro:assets";
+
+interface ImageProps {
+  image: ImageMetadata;
+  alt: string;
+  angle?: number;
+}
+
+interface Props {
+  class?: string;
+  images: ImageProps[];
+}
+
+const { class: userClass, images } = Astro.props;
+
+// NOTE Tailwind rotations didn't work for all angles (e.g. -25 deg).
+// NOTE Needed to resort to using inline styles.
+---
+
+<div class:list={["relative", userClass]}>
+  {
+    images.map((image) => (
+      <Image
+        class:list={[
+          "absolute",
+          "max-w-[100%]",
+          "max-h-[100%]",
+          "left-[50%]",
+          "top-[50%]",
+        ]}
+        style={`transform: translate(-50%, -50%) rotate(${
+          image.angle || 0
+        }deg);`}
+        src={image.image}
+        alt={image.alt}
+      />
+    ))
+  }
+</div>
