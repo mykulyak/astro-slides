@@ -1,0 +1,28 @@
+---
+// This component adds a small margin to the code block and sets the background
+import {
+  getHighlighter,
+  type BuiltinLanguage,
+  type BuiltinTheme,
+  type LanguageRegistration,
+  type SpecialLanguage,
+  type ThemeRegistration,
+  type ThemeRegistrationRaw,
+} from "shikiji";
+import { Code } from "astro:components";
+
+interface Props {
+  code: string;
+  lang?: BuiltinLanguage | SpecialLanguage | LanguageRegistration;
+  theme?: BuiltinTheme | ThemeRegistration | ThemeRegistrationRaw;
+}
+
+const { code, lang = "plaintext", theme = "github-dark" } = Astro.props;
+
+const highligher = await getHighlighter({ themes: [theme], langs: [lang] });
+const bgColor = highligher.getTheme(theme).bg;
+---
+
+<div class="p-2" style={`background-color: ${bgColor}`}>
+  <Code code={code} lang={lang} theme={theme} />
+</div>
