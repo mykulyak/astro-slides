@@ -11,6 +11,9 @@
       "@components/*": [
         "components/*"
       ],
+      "@layouts/*": [
+        "layouts/*"
+      ],
       "@templates/*": [
         "templates/*"
       ],
