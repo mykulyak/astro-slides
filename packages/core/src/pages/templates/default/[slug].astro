@@ -14,6 +14,7 @@ import BigNumber from "@templates/default/BigNumber.astro";
 import Viewport from "@components/Viewport.astro";
 import Blank from "@templates/default/Blank.astro";
 import TwoAsymmetricContent from "@templates/default/TwoAsymmetricContent.astro";
+import AboutMe from "@templates/default/AboutMe.astro";
 
 const { slug } = Astro.params;
 
@@ -33,6 +34,7 @@ export const getStaticPaths = (() => {
     { params: { slug: "blank" } },
     { params: { slug: "two-asymmetric-content-left" } },
     { params: { slug: "two-asymmetric-content-right" } },
+    { params: { slug: "about-me" } },
   ];
 }) satisfies GetStaticPaths;
 ---
@@ -69,5 +71,6 @@ export const getStaticPaths = (() => {
         <TwoAsymmetricContent variant="right" />
       )
     }
+    {slug === "about-me" && <AboutMe />}
   </Viewport>
 </Layout>

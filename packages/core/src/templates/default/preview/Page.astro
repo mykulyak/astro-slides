@@ -12,6 +12,7 @@ import VerticalTitleAndText from "../VerticalTitleAndText.astro";
 import MainPoint from "../MainPoint.astro";
 import BigNumber from "../BigNumber.astro";
 import TwoAsymmetricContent from "../TwoAsymmetricContent.astro";
+import AboutMe from "../AboutMe.astro";
 ---
 
 <section class="page-layout">
@@ -101,6 +102,13 @@ import TwoAsymmetricContent from "../TwoAsymmetricContent.astro";
     <Blank />
     <Fragment slot="title">
       <a href="blank">Blank</a>
+    </Fragment>
+  </Card>
+  <!-- derived slides -->
+  <Card>
+    <AboutMe />
+    <Fragment slot="title">
+      <a href="about-me">About Me</a>
     </Fragment>
   </Card>
 </section>

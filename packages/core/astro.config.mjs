@@ -4,5 +4,7 @@ import tailwind from "@astrojs/tailwind";
 import icon from "astro-icon";
 
 export default defineConfig({
-  integrations: [tailwind(), icon()]
+  integrations: [tailwind(), icon({
+    iconDir: "src/assets/icons",    
+  })]
 });

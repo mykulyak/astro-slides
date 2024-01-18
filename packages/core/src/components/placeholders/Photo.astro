@@ -1,11 +1,11 @@
 ---
 import { Image } from "astro:assets";
 import Placeholder from "../Placeholder.astro";
-import placeholderImage from "./assets/placeholder.svg";
+import photo from "./assets/photo.svg";
 ---
 
 <Placeholder class="flex items-center justify-center">
-  <div class="w-[35%] h-[35%]">
-    <Image src={placeholderImage} alt="Placeholder" />
+  <div class="w-[40%] h-[40%]">
+    <Image class="w-full h-full" src={photo} alt="Photo placeholder" />
   </div>
 </Placeholder>
