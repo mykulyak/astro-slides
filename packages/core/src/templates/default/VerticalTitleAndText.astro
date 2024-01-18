@@ -1,7 +1,8 @@
 ---
-import Slide from "@components/Slide.astro";
+import BaseSlide from "./Base.astro";
 import TextPlaceholder from "@components/placeholders/Text.astro";
 import ContentPlaceholder from "@components/placeholders/Content.astro";
+import VerticalTextBlock from "@components/VerticalTextBlock.astro";
 
 interface Props {
   variant?: "left" | "right";
@@ -10,39 +11,41 @@ interface Props {
 const { variant = "left" } = Astro.props;
 ---
 
-<Slide
+<BaseSlide
   class={variant === "left"
     ? "slide-vertical-title-and-text-left"
     : "slide-vertical-title-and-text-right"}
 >
   <div class={variant === "left" ? "" : "order-1"}>
-    <div class="rotate-90">
-      <slot name="title">
-        <TextPlaceholder>
-          This is the <code>title</code> slot
-        </TextPlaceholder>
-      </slot>
-    </div>
+    <slot name="title">
+      <TextPlaceholder>
+        <VerticalTextBlock>
+          <slot name="title">TITLE</slot>
+        </VerticalTextBlock>
+      </TextPlaceholder>
+    </slot>
   </div>
-  <div class={variant == "left" ? "order-1" : ""}>
+  <div class:list={["text-[45px]", variant == "left" ? "order-1" : ""]}>
     <slot name="content">
       <ContentPlaceholder>
-        This is the <code>title</code> slot
+        This is the <code>content</code> slot
       </ContentPlaceholder>
     </slot>
   </div>
-</Slide>
+</BaseSlide>
 
 <style is:global>
   .slide-vertical-title-and-text-left {
     display: grid;
-    grid-template-columns: 1fr 4fr;
+    grid-template-columns: auto 1fr;
     grid-template-rows: 1fr;
+    column-gap: 90px;
   }
 
   .slide-vertical-title-and-text-right {
     display: grid;
-    grid-template-columns: 4fr 1fr;
+    grid-template-columns: 1fr auto;
     grid-template-rows: 1fr;
+    column-gap: 90px;
   }
 </style>

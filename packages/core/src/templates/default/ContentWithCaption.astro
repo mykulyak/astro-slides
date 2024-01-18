@@ -4,22 +4,22 @@ import TextPlaceholder from "@components/placeholders/Text.astro";
 import ContentPlaceholder from "@components/placeholders/Content.astro";
 ---
 
-<BaseSlide class="content-with-caption-layout debug1">
-  <div class="text-[60px] debug1">
+<BaseSlide class="content-with-caption-layout">
+  <div class="text-[60px]">
     <slot name="title">
       <TextPlaceholder>
         This is the <code>title</code> slot
       </TextPlaceholder>
     </slot>
   </div>
-  <div class="row-span-2 text-[45px] debug1">
+  <div class="row-span-2 text-[45px]">
     <slot name="content">
       <ContentPlaceholder>
         This is the <code>content</code> slot
       </ContentPlaceholder>
     </slot>
   </div>
-  <div class="text-[30px] debug1">
+  <div class="text-[30px]">
     <slot name="description">
       <TextPlaceholder>
         This is the <code>description</code> slot
