@@ -10,21 +10,26 @@ import ContentWithCaption from "@templates/default/ContentWithCaption.astro";
 import VerticalTitleAndText from "@templates/default/VerticalTitleAndText.astro";
 import MainPoint from "@templates/default/MainPoint.astro";
 import BigNumber from "@templates/default/BigNumber.astro";
+import TwoAsymmetricContent from "@templates/default/TwoAsymmetricContent.astro";
+import ThreeContent from "@templates/default/ThreeContent.astro";
+import Blank from "@templates/default/Blank.astro";
 ---
 
 <Layout title="Astro Slides template">
   <Presentation>
     <TitleSlide />
-    <TitleAndContent />
     <SectionHeader />
+    <TitleOnly />
+    <TitleAndContent />
     <TwoContent />
-    <TitleOnly>
-      <h1 slot="title">My title</h1>
-    </TitleOnly>
+    <TwoAsymmetricContent variant="left" />
+    <TwoAsymmetricContent variant="right" />
     <ContentWithCaption />
     <VerticalTitleAndText variant="right" />
     <VerticalTitleAndText variant="left" />
+    <ThreeContent />
     <MainPoint />
     <BigNumber />
+    <Blank />
   </Presentation>
 </Layout>
