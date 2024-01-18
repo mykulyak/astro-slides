@@ -11,6 +11,7 @@ import ContentWithCaption from "../ContentWithCaption.astro";
 import VerticalTitleAndText from "../VerticalTitleAndText.astro";
 import MainPoint from "../MainPoint.astro";
 import BigNumber from "../BigNumber.astro";
+import TwoAsymmetricContent from "../TwoAsymmetricContent.astro";
 ---
 
 <section class="page-layout">
@@ -21,27 +22,9 @@ import BigNumber from "../BigNumber.astro";
     </Fragment>
   </Card>
   <Card>
-    <TitleAndContent />
-    <Fragment slot="title">
-      <a href="title-and-content">Title and Content</a>
-    </Fragment>
-  </Card>
-  <Card>
     <SectionHeader />
     <Fragment slot="title">
       <a href="section-header">Section Header</a>
-    </Fragment>
-  </Card>
-  <Card>
-    <TwoContent />
-    <Fragment slot="title">
-      <a href="two-content">Two Column Content</a>
-    </Fragment>
-  </Card>
-  <Card>
-    <ThreeContent />
-    <Fragment slot="title">
-      <a href="three-content">Three Column Content</a>
     </Fragment>
   </Card>
   <Card>
@@ -51,9 +34,31 @@ import BigNumber from "../BigNumber.astro";
     </Fragment>
   </Card>
   <Card>
-    <Blank />
+    <TitleAndContent />
     <Fragment slot="title">
-      <a href="blank">Blank</a>
+      <a href="title-and-content">Title and Content</a>
+    </Fragment>
+  </Card>
+  <Card>
+    <TwoContent />
+    <Fragment slot="title">
+      <a href="two-content">Two Column Content</a>
+    </Fragment>
+  </Card>
+  <Card>
+    <TwoAsymmetricContent variant="left" />
+    <Fragment slot="title">
+      <a href="ttwo-asymmetric-content-left"
+        >Two Unequal Content (left variant)</a
+      >
+    </Fragment>
+  </Card>
+  <Card>
+    <TwoAsymmetricContent variant="right" />
+    <Fragment slot="title">
+      <a href="two-asymmetric-content-right"
+        >Two Unequal Content (right variant)</a
+      >
     </Fragment>
   </Card>
   <Card>
@@ -75,6 +80,12 @@ import BigNumber from "../BigNumber.astro";
     </Fragment>
   </Card>
   <Card>
+    <ThreeContent />
+    <Fragment slot="title">
+      <a href="three-content">Three Column Content</a>
+    </Fragment>
+  </Card>
+  <Card>
     <MainPoint />
     <Fragment slot="title">
       <a href="main-point">Main Point</a>
@@ -84,6 +95,12 @@ import BigNumber from "../BigNumber.astro";
     <BigNumber />
     <Fragment slot="title">
       <a href="big-number">Big Number</a>
+    </Fragment>
+  </Card>
+  <Card>
+    <Blank />
+    <Fragment slot="title">
+      <a href="blank">Blank</a>
     </Fragment>
   </Card>
 </section>

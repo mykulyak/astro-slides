@@ -1,0 +1,56 @@
+---
+import BaseSlide from "./Base.astro";
+import TextPlaceholder from "@components/placeholders/Text.astro";
+
+interface Props {
+  variant?: "left" | "right";
+}
+
+const { variant = "left" } = Astro.props;
+---
+
+<BaseSlide
+  class={variant === "left"
+    ? "two-asymmetric-content-layout-left"
+    : "two-asymmetric-content-layout-right"}
+>
+  <div class="text-[64px] col-span-2">
+    <slot name="title">
+      <TextPlaceholder>
+        This is the <code>title</code> slot
+      </TextPlaceholder>
+    </slot>
+  </div>
+  <div class="text-[35px]">
+    <slot name="content_left">
+      <TextPlaceholder>
+        This is the <code>content_left</code> slot
+      </TextPlaceholder>
+    </slot>
+  </div>
+  <div class="text-[35px]">
+    <slot name="content_right">
+      <TextPlaceholder>
+        This is the <code>content_right</code> slot
+      </TextPlaceholder>
+    </slot>
+  </div>
+</BaseSlide>
+
+<style is:global>
+  .two-asymmetric-content-layout-left {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    grid-template-rows: auto 1fr;
+    row-gap: 20px;
+    column-gap: 90px;
+  }
+
+  .two-asymmetric-content-layout-right {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    grid-template-rows: auto 1fr;
+    row-gap: 20px;
+    column-gap: 90px;
+  }
+</style>
