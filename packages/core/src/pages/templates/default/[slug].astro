@@ -38,13 +38,7 @@ export const getStaticPaths = (() => {
     {slug === "title-and-content" && <TitleAndContent />}
     {slug === "section-header" && <SectionHeader />}
     {slug === "two-content" && <TwoContent />}
-    {
-      slug === "title-only" && (
-        <TitleOnly>
-          <h1 slot="title">My title</h1>
-        </TitleOnly>
-      )
-    }
+    {slug === "title-only" && <TitleOnly />}
     {slug === "content-with-caption" && <ContentWithCaption />}
     {
       slug === "vertical-title-and-text-left" && (

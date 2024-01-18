@@ -1,12 +1,20 @@
 ---
-import Slide from "@components/Slide.astro";
+import BaseSlide from "./Base.astro";
 import TextPlaceholder from "@components/placeholders/Text.astro";
 ---
 
-<Slide class="flex items-center justify-center bg-slate-100">
-  <div class="bg-slate-200 text-[90px]">
+<BaseSlide class="title-only-layout">
+  <div class="text-[64px]">
     <slot name="title">
       <TextPlaceholder>This is the <code>title</code> slot</TextPlaceholder>
     </slot>
   </div>
-</Slide>
+</BaseSlide>
+
+<style is:global>
+  .title-only-layout {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: min-content;
+  }
+</style>
