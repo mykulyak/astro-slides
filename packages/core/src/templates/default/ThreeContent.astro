@@ -1,0 +1,48 @@
+---
+import BaseSlide from "./Base.astro";
+import TextPlaceholder from "@components/placeholders/Text.astro";
+---
+
+<BaseSlide class="three-content-layout">
+  <div class="text-[64px] col-span-3">
+    <slot name="title">
+      <TextPlaceholder>
+        This is the <code>title</code> slot
+      </TextPlaceholder>
+    </slot>
+  </div>
+  <div class="text-[35px]">
+    <slot name="content_left">
+      <TextPlaceholder>
+        This is the<br />
+        <code>content_left</code><br /> slot
+      </TextPlaceholder>
+    </slot>
+  </div>
+  <div class="text-[35px]">
+    <slot name="content_middle">
+      <TextPlaceholder>
+        This is the<br />
+        <code>content_middle</code><br /> slot
+      </TextPlaceholder>
+    </slot>
+  </div>
+  <div class="text-[35px]">
+    <slot name="content_right">
+      <TextPlaceholder>
+        This is the<br />
+        <code>content_right</code><br /> slot
+      </TextPlaceholder>
+    </slot>
+  </div>
+</BaseSlide>
+
+<style is:global>
+  .three-content-layout {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: auto 1fr;
+    row-gap: 20px;
+    column-gap: 60px;
+  }
+</style>
