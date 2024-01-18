@@ -4,7 +4,7 @@ import TextPlaceholder from "@components/placeholders/Text.astro";
 ---
 
 <BaseSlide class="big-number-layout">
-  <div class="text-[270px] leading-[270px] leatext-center self-end">
+  <div class="text-[270px] leading-[270px] text-center self-end">
     <slot name="number">
       <TextPlaceholder><code>number</code></TextPlaceholder>
     </slot>
@@ -22,7 +22,7 @@ import TextPlaceholder from "@components/placeholders/Text.astro";
   .big-number-layout {
     display: grid;
     grid-template-columns: 1fr;
-    grid-template-rows: 1fr 1fr;
+    grid-template-rows: 60% 40%;
     row-gap: 16px;
   }
 </style>
