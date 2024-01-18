@@ -1,12 +1,14 @@
 ---
-import Slide from "./Base.astro";
+import BaseSlide from "./Base.astro";
 import TextPlaceholder from "@components/placeholders/Text.astro";
 ---
 
-<Slide>
-  <div class="text-[90px] flex flex-col justify-center items-center">
+<BaseSlide
+  class="grid grid-template-rows-1 grid-template-columns-1 content-center"
+>
+  <div class="text-[90px]">
     <slot name="title" /><TextPlaceholder>
       This is the <code>title</code> slot
     </TextPlaceholder>
   </div>
-</Slide>
+</BaseSlide>

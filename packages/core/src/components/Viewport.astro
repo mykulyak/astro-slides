@@ -8,7 +8,7 @@ const { class: userClass } = Astro.props;
 
 <div
   data-astro-slides-viewport
-  class={`w-full h-full flex items-center justify-center ${userClass}`}
+  class={`w-full h-full flex items-center justify-center ${userClass || ""}`}
 >
   <slot />
 </div>

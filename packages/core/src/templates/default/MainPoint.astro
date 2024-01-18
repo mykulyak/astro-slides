@@ -1,12 +1,23 @@
 ---
-import Slide from "@components/Slide.astro";
+import BaseSlide from "./Base.astro";
 import TextPlaceholder from "@components/placeholders/Text.astro";
 ---
 
-<Slide class="flex">
-  <div class="text-[120px] max-w-[1120px]">
+<BaseSlide class="main-point-layout">
+  <div class="text-[120px]">
     <slot name="content">
-      <TextPlaceholder>This is the <code>content</code> slot</TextPlaceholder>
+      <TextPlaceholder>
+        This is the<br /><code>content</code> slot
+      </TextPlaceholder>
     </slot>
   </div>
-</Slide>
+</BaseSlide>
+
+<style is:global>
+  .main-point-layout {
+    display: grid;
+    grid-template-columns: 70%;
+    grid-template-rows: 1fr;
+    align-content: center;
+  }
+</style>

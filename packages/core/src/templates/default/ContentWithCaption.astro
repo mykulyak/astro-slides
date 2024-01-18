@@ -1,29 +1,39 @@
 ---
-import Slide from "@components/Slide.astro";
+import BaseSlide from "./Base.astro";
 import TextPlaceholder from "@components/placeholders/Text.astro";
 import ContentPlaceholder from "@components/placeholders/Content.astro";
 ---
 
-<Slide class="grid grid-cols-2 grid-rows-1">
-  <div>
+<BaseSlide class="content-with-caption-layout">
+  <div class="text-[60px]">
     <slot name="title">
       <TextPlaceholder>
         This is the <code>title</code> slot
       </TextPlaceholder>
     </slot>
   </div>
-  <div class="row-span-2">
+  <div class="row-span-2 text-[45px]">
     <slot name="content">
       <ContentPlaceholder>
-        This is the <code>title</code> slot
+        This is the <code>content</code> slot
       </ContentPlaceholder>
     </slot>
   </div>
-  <div>
+  <div class="text-[30px]">
     <slot name="description">
       <TextPlaceholder>
         This is the <code>description</code> slot
       </TextPlaceholder>
     </slot>
   </div>
-</Slide>
+</BaseSlide>
+
+<style is:global>
+  .content-with-caption-layout {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: auto 1fr;
+    column-gap: 90px;
+    row-gap: 20px;
+  }
+</style>

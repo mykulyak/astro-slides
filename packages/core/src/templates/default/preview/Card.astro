@@ -2,9 +2,11 @@
 import Viewport from "@components/Viewport.astro";
 ---
 
-<div class="m-4 flex flex-col gap-2 relative" data-astro-slides-thumbnail>
-  <Viewport>
-    <slot />
-  </Viewport>
+<div class="m-4 flex flex-col gap-2">
+  <div class="w-full h-full relative border-slate-200 border-2 shadow-md">
+    <Viewport>
+      <slot />
+    </Viewport>
+  </div>
   <h2 class="text-center mt-1 flex-grow-0 shrink-1"><slot name="title" /></h2>
 </div>

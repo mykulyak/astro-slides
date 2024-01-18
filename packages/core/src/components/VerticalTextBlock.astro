@@ -1,0 +1,18 @@
+---
+interface Props {
+  class?: string;
+}
+
+const { class: userClass } = Astro.props;
+
+const chars: string[] = [];
+
+if (Astro.slots.has("default")) {
+  const content = await Astro.slots.render("default");
+  chars.push(...(content || "").split(""));
+}
+---
+
+<div class:list={["flex", "flex-col", "text-center", "text-[64px]", userClass]}>
+  {chars.map((char) => <span>{char}</span>)}
+</div>

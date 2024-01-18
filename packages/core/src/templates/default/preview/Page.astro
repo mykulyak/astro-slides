@@ -12,7 +12,7 @@ import MainPoint from "../MainPoint.astro";
 import BigNumber from "../BigNumber.astro";
 ---
 
-<section class="w-full h-full p-4 grid grid-rows-4 grid-cols-3 gap-4">
+<section class="page-layout">
   <Card>
     <TitleSlide />
     <Fragment slot="title">
@@ -83,3 +83,17 @@ import BigNumber from "../BigNumber.astro";
     </Fragment>
   </Card>
 </section>
+
+<style>
+  .page-layout {
+    width: 100%;
+    height: 100%;
+    padding: 40px;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    grid-auto-rows: 250px;
+    gap: 16px;
+    overflow-x: hidden;
+    overflow-y: auto;
+  }
+</style>
