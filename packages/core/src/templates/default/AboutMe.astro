@@ -1,0 +1,33 @@
+---
+import TextBlock from "@components/TextBlock.astro";
+import TwoContent from "./TwoContent.astro";
+import List from "@components/lists/SimpleList.astro";
+import ListItem from "@components/lists/SimpleListItem.astro";
+import SocialLinks from "@components/SocialLinks.astro";
+import PhotoPlaceholder from "@components/placeholders/Photo.astro";
+---
+
+<TwoContent class="debug1">
+  <TextBlock class="text-[60px] uppercase" slot="title">About Me</TextBlock>
+
+  <TextBlock class="text-[60px] mb-10" slot="content_left">
+    Describe yourself in a short sentence.
+  </TextBlock>
+
+  <List slot="content_left">
+    <ListItem>Key point #1.</ListItem>
+    <ListItem>Key point #2.</ListItem>
+    <ListItem>Key point #3.</ListItem>
+  </List>
+
+  <SocialLinks
+    linkedin="https://www.linkedin.com/in/your-name"
+    github="https://github.com/your-acccount"
+    facebook="https://www.facebook.com/your-account"
+    twitter="https://twitter.com/your-account"
+    slot="content_left"
+    class="mt-10"
+  />
+
+  <PhotoPlaceholder slot="content_right" />
+</TwoContent>

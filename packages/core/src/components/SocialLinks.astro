@@ -1,0 +1,52 @@
+---
+import { Icon } from "astro-icon/components";
+
+interface Props {
+  class?: string;
+  github?: string;
+  linkedin?: string;
+  facebook?: string;
+  twitter?: string;
+}
+
+const { class: userClass, github, linkedin, facebook, twitter } = Astro.props;
+---
+
+<ul class:list={["list-none", "flex", "justify-around", "p-3", userClass]}>
+  {
+    github && (
+      <li>
+        <a href={github} target="_blank">
+          <Icon name="social/github" size={32} />
+        </a>
+      </li>
+    )
+  }
+  {
+    linkedin && (
+      <li>
+        <a href={linkedin} target="_blank">
+          <Icon name="social/linkedin" size={32} />
+        </a>
+      </li>
+    )
+  }
+  {
+    facebook && (
+      <li>
+        <a href={facebook} target="_blank">
+          <Icon name="social/facebook" size={32} />
+        </a>
+      </li>
+    )
+  }
+  {
+    twitter && (
+      <li>
+        <a href={twitter} target="_blank">
+          <Icon name="social/x" size={32} />
+        </a>
+      </li>
+    )
+  }
+</ul>
