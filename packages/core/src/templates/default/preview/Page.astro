@@ -4,6 +4,7 @@ import TitleSlide from "../TitleSlide.astro";
 import TitleAndContent from "../TitleAndContent.astro";
 import SectionHeader from "../SectionHeader.astro";
 import TwoContent from "../TwoContent.astro";
+import ThreeContent from "../ThreeContent.astro";
 import TitleOnly from "../TitleOnly.astro";
 import Blank from "../Blank.astro";
 import ContentWithCaption from "../ContentWithCaption.astro";
@@ -31,11 +32,16 @@ import BigNumber from "../BigNumber.astro";
       <a href="section-header">Section Header</a>
     </Fragment>
   </Card>
-
   <Card>
     <TwoContent />
     <Fragment slot="title">
-      <a href="two-content">Two Content</a>
+      <a href="two-content">Two Column Content</a>
+    </Fragment>
+  </Card>
+  <Card>
+    <ThreeContent />
+    <Fragment slot="title">
+      <a href="three-content">Three Column Content</a>
     </Fragment>
   </Card>
   <Card>
@@ -50,7 +56,6 @@ import BigNumber from "../BigNumber.astro";
       <a href="blank">Blank</a>
     </Fragment>
   </Card>
-
   <Card>
     <ContentWithCaption />
     <Fragment slot="title">
@@ -63,7 +68,6 @@ import BigNumber from "../BigNumber.astro";
       <a href="vertical-title-and-text-left">Vertical Title and Text</a>
     </Fragment>
   </Card>
-
   <Card>
     <VerticalTitleAndText variant="right" />
     <Fragment slot="title">

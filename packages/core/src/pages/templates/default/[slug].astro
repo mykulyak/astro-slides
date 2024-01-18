@@ -5,6 +5,7 @@ import TitleSlide from "@templates/default/TitleSlide.astro";
 import TitleAndContent from "@templates/default/TitleAndContent.astro";
 import SectionHeader from "@templates/default/SectionHeader.astro";
 import TwoContent from "@templates/default/TwoContent.astro";
+import ThreeContent from "@templates/default/ThreeContent.astro";
 import TitleOnly from "@templates/default/TitleOnly.astro";
 import ContentWithCaption from "@templates/default/ContentWithCaption.astro";
 import VerticalTitleAndText from "@templates/default/VerticalTitleAndText.astro";
@@ -21,6 +22,7 @@ export const getStaticPaths = (() => {
     { params: { slug: "title-and-content" } },
     { params: { slug: "section-header" } },
     { params: { slug: "two-content" } },
+    { params: { slug: "three-content" } },
     { params: { slug: "title-only" } },
     { params: { slug: "content-with-caption" } },
     { params: { slug: "vertical-title-and-text-left" } },
@@ -38,6 +40,7 @@ export const getStaticPaths = (() => {
     {slug === "title-and-content" && <TitleAndContent />}
     {slug === "section-header" && <SectionHeader />}
     {slug === "two-content" && <TwoContent />}
+    {slug === "three-content" && <ThreeContent />}
     {slug === "title-only" && <TitleOnly />}
     {slug === "content-with-caption" && <ContentWithCaption />}
     {
