@@ -1,0 +1,126 @@
+---
+import Card from "./Card.astro";
+import TitleSlide from "../TitleSlide.astro";
+import AboutUs from "../AboutUs.astro";
+import FullSlideContent from "../FullSlideContent.astro";
+import ThankYou from "../ThankYou.astro";
+import ThreeContent from "../ThreeContent.astro";
+import FourContent from "../FourContent.astro";
+---
+
+<section class="page-layout">
+  <Card>
+    <TitleSlide />
+    <Fragment slot="title">
+      <a href="title-slide">Title Slide</a>
+    </Fragment>
+  </Card>
+  <Card>
+    <AboutUs />
+    <Fragment slot="title">
+      <a href="about-us">About Us</a>
+    </Fragment>
+  </Card>
+  <!-- <Card>
+    <TitleOnly />
+    <Fragment slot="title">
+      <a href="title-only">Title Only</a>
+    </Fragment>
+  </Card>
+  <Card>
+    <TitleAndContent />
+    <Fragment slot="title">
+      <a href="title-and-content">Title and Content</a>
+    </Fragment>
+  </Card>
+  <Card>
+    <TwoContent />
+    <Fragment slot="title">
+      <a href="two-content">Two Column Content</a>
+    </Fragment>
+  </Card>
+  <Card>
+    <TwoAsymmetricContent variant="left" />
+    <Fragment slot="title">
+      <a href="two-asymmetric-content-left"
+        >Two Unequal Content (left variant)</a
+      >
+    </Fragment>
+  </Card>
+  <Card>
+    <TwoAsymmetricContent variant="right" />
+    <Fragment slot="title">
+      <a href="two-asymmetric-content-right"
+        >Two Unequal Content (right variant)</a
+      >
+    </Fragment>
+  </Card>
+  <Card>
+    <ContentWithCaption />
+    <Fragment slot="title">
+      <a href="content-with-caption">Content with Caption</a>
+    </Fragment>
+  </Card>
+  <Card>
+    <VerticalTitleAndText />
+    <Fragment slot="title">
+      <a href="vertical-title-and-text-left">Vertical Title and Text</a>
+    </Fragment>
+  </Card>
+  <Card>
+    <VerticalTitleAndText variant="right" />
+    <Fragment slot="title">
+      <a href="vertical-title-and-text-right">Vertical Title and Text</a>
+    </Fragment>
+  </Card>
+  <Card>
+    <ThreeContent />
+    <Fragment slot="title">
+      <a href="three-content">Three Column Content</a>
+    </Fragment>
+  </Card>
+  <Card>
+    <MainPoint />
+    <Fragment slot="title">
+      <a href="main-point">Main Point</a>
+    </Fragment>
+  </Card> -->
+  <Card>
+    <ThreeContent />
+    <Fragment slot="title">
+      <a href="three-content">Three Column Content</a>
+    </Fragment>
+  </Card>
+  <Card>
+    <FourContent />
+    <Fragment slot="title">
+      <a href="four-content">Four Column Content</a>
+    </Fragment>
+  </Card>
+  <Card>
+    <FullSlideContent />
+    <Fragment slot="title">
+      <a href="full-slide-content">Full Slide Content</a>
+    </Fragment>
+  </Card>
+  <Card>
+    <ThankYou />
+    <Fragment slot="title">
+      <a href="thank-you">Thank You</a>
+    </Fragment>
+  </Card>
+</section>
+
+<style>
+  .page-layout {
+    width: 100%;
+    height: 100%;
+    padding: 40px;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    grid-auto-rows: 250px;
+    gap: 16px;
+    overflow-x: hidden;
+    overflow-y: auto;
+  }
+</style>

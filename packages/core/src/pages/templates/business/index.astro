@@ -1,0 +1,37 @@
+---
+import Presentation from "@components/Presentation.astro";
+import Layout from "../../../layouts/Layout.astro";
+import TitleSlide from "@templates/business/TitleSlide.astro";
+import AboutUs from "@templates/business/AboutUs.astro";
+// import SectionHeader from "@templates/default/SectionHeader.astro";
+// import TwoContent from "@templates/default/TwoContent.astro";
+// import TitleOnly from "@templates/default/TitleOnly.astro";
+// import ContentWithCaption from "@templates/default/ContentWithCaption.astro";
+// import VerticalTitleAndText from "@templates/default/VerticalTitleAndText.astro";
+// import MainPoint from "@templates/default/MainPoint.astro";
+// import BigNumber from "@templates/default/BigNumber.astro";
+// import TwoAsymmetricContent from "@templates/default/TwoAsymmetricContent.astro";
+import FourContent from "@templates/business/FourContent.astro";
+import FullSlideContent from "@templates/business/FullSlideContent.astro";
+import ThreeContent from "@templates/business/ThreeContent.astro";
+---
+
+<Layout title="Astro Slides template">
+  <Presentation>
+    <TitleSlide />
+    <AboutUs />
+    <!-- <TitleOnly />
+    <TitleAndContent />
+    <TwoContent />
+    <TwoAsymmetricContent variant="left" />
+    <TwoAsymmetricContent variant="right" />
+    <ContentWithCaption />
+    <VerticalTitleAndText variant="right" />
+    <VerticalTitleAndText variant="left" />
+    <ThreeContent />
+    <MainPoint /> -->
+    <ThreeContent />
+    <FourContent />
+    <FullSlideContent />
+  </Presentation>
+</Layout>

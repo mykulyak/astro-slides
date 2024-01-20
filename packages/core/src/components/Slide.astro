@@ -6,6 +6,9 @@ interface Props {
 const { class: userClass } = Astro.props;
 ---
 
-<section data-astro-slides-slide class:list={["w-full h-full", userClass]}>
+<section
+  data-astro-slides-slide
+  class:list={["relative", "w-full h-full", userClass]}
+>
   <slot />
 </section>

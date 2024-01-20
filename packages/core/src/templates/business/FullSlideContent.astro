@@ -1,0 +1,18 @@
+---
+import ContentPlaceholder from "@components/placeholders/Content.astro";
+import BaseSlide from "./Base.astro";
+
+interface Props {
+  class?: string;
+}
+
+const { class: className } = Astro.props;
+---
+
+<BaseSlide class={className}>
+  <slot>
+    <ContentPlaceholder>
+      This is the <code>default</code> slot
+    </ContentPlaceholder>
+  </slot>
+</BaseSlide>

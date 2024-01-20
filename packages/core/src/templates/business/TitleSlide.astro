@@ -1,0 +1,12 @@
+---
+import BaseSlide from "./Base.astro";
+import SlideTitle from "./SlideTitle.astro";
+---
+
+<BaseSlide
+  class="grid grid-cols-1 grid-rows-1 gap-[50px] items-center justify-items-center bg-[#202020]"
+>
+  <SlideTitle class="text-white">
+    <slot name="title">This is the <em>title</em> slot</slot>
+  </SlideTitle>
+</BaseSlide>

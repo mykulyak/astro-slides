@@ -1,0 +1,30 @@
+---
+// special text block that
+
+import TextBlock from "@components/TextBlock.astro";
+
+interface Props {
+  class?: string;
+}
+
+const { class: userClass } = Astro.props;
+---
+
+<TextBlock
+  class:list={[
+    "text-[60px]",
+    "font-extrabold",
+    "italic",
+    "uppercase",
+    "slide-title-block",
+    userClass,
+  ]}
+>
+  <slot />
+</TextBlock>
+
+<style is:global>
+  .slide-title-block em {
+    color: #f7c32a;
+  }
+</style>

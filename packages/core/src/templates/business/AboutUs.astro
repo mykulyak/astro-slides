@@ -1,0 +1,37 @@
+---
+import ContentPlaceholder from "@components/placeholders/Content.astro";
+import BaseSlide from "./Base.astro";
+import SlideTitle from "./SlideTitle.astro";
+
+// FIXME typographic scale for content
+---
+
+<BaseSlide class="about-us-slide-layout debug1">
+  <SlideTitle class="debug1">
+    <slot name="title">The <em>title</em> slot</slot>
+  </SlideTitle>
+  <div class="row-span-2">
+    <slot name="right_content">
+      <ContentPlaceholder>
+        This is the <code>right_content</code> placeholder
+      </ContentPlaceholder>
+    </slot>
+  </div>
+  <div>
+    <slot name="left_content">
+      <ContentPlaceholder>
+        This is the <code>left_content</code> placeholder
+      </ContentPlaceholder>
+    </slot>
+  </div>
+</BaseSlide>
+
+<style is:global>
+  .about-us-slide-layout {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: min-content 1fr;
+    row-gap: 50px;
+    column-gap: 50px;
+  }
+</style>

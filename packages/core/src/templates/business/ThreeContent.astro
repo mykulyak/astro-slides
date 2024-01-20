@@ -1,0 +1,76 @@
+---
+import PicturePlaceholder from "@components/placeholders/Picture.astro";
+import BaseSlide from "./Base.astro";
+import SlideTitle from "./SlideTitle.astro";
+import TextPlaceholder from "@components/placeholders/Text.astro";
+---
+
+<BaseSlide class="three-content-slide-layout debug1">
+  <SlideTitle class="col-span-3 text-center">
+    <slot name="title">
+      The <em>title</em> slot
+    </slot>
+  </SlideTitle>
+  <div class="col-span-3 text-center">
+    <slot name="subtitle">
+      <TextPlaceholder />
+    </slot>
+  </div>
+
+  <div class="aspect-square">
+    <slot name="image_1">
+      <PicturePlaceholder>
+        This is the <code>image_1</code> slot
+      </PicturePlaceholder>
+    </slot>
+  </div>
+  <div class="aspect-square">
+    <slot name="image_2">
+      <PicturePlaceholder>
+        This is the <code>image_2</code> slot
+      </PicturePlaceholder>
+    </slot>
+  </div>
+  <div class="aspect-square">
+    <slot name="image_3">
+      <PicturePlaceholder>
+        This is the <code>image_3</code> slot
+      </PicturePlaceholder>
+    </slot>
+  </div>
+
+  <div>
+    <slot name="description_1">
+      <TextPlaceholder>
+        This is the<br />
+        <code>description_1</code><br /> slot
+      </TextPlaceholder>
+    </slot>
+  </div>
+  <div>
+    <slot name="description_2">
+      <TextPlaceholder>
+        This is the<br />
+        <code>description_2</code><br /> slot
+      </TextPlaceholder>
+    </slot>
+  </div>
+  <div>
+    <slot name="description_3">
+      <TextPlaceholder>
+        This is the<br />
+        <code>description_3</code><br /> slot
+      </TextPlaceholder>
+    </slot>
+  </div>
+</BaseSlide>
+
+<style is:global>
+  .three-content-slide-layout {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(4, min-content);
+    column-gap: 60px;
+    row-gap: 40px;
+  }
+</style>
