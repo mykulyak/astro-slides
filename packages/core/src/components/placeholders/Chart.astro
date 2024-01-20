@@ -1,5 +1,11 @@
 ---
+import { Image } from "astro:assets";
 import Placeholder from "../Placeholder.astro";
+import chart from "./assets/chart.svg";
 ---
 
-<Placeholder>Chart</Placeholder>
+<Placeholder>
+  <div class="w-[40%] h-[40%]">
+    <Image class="w-full h-full" src={chart} alt="Chart placeholder" />
+  </div>
+</Placeholder>
