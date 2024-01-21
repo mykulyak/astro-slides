@@ -1,0 +1,40 @@
+---
+import BaseSlide from "@components/Slide.astro";
+import TextPlaceholder from "@components/placeholders/Text.astro";
+import PicturePlaceholder from "@components/placeholders/Picture.astro";
+import SlideTitle from "./SlideTitle.astro";
+---
+
+<BaseSlide class="two-column-full-bleed-slide-layout">
+  <div class="row-span-2 pl-[100px] py-[120px]">
+    <SlideTitle>
+      <slot name="title"><em>title</em> slot</slot>
+    </SlideTitle>
+    <slot name="left">
+      <div class="h-full w-full">
+        <TextPlaceholder class="min-h-0" />
+      </div>
+    </slot>
+  </div>
+  <div>
+    <slot name="right_top">
+      <PicturePlaceholder />
+    </slot>
+  </div>
+  <div>
+    <slot name="right_bottom">
+      <PicturePlaceholder />
+    </slot>
+  </div>
+</BaseSlide>
+
+<style is:global>
+  .two-column-full-bleed-slide-layout {
+    margin: 0;
+    padding: 0;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(2, 1fr);
+    gap: 20px;
+  }
+</style>

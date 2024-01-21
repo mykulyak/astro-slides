@@ -3,20 +3,12 @@ import type { GetStaticPaths } from "astro";
 import Layout from "../../../layouts/Layout.astro";
 import TitleSlide from "@templates/business/TitleSlide.astro";
 import AboutUs from "@templates/business/AboutUs.astro";
-// import SectionHeader from "@templates/default/SectionHeader.astro";
-// import TwoContent from "@templates/default/TwoContent.astro";
-// import ThreeContent from "@templates/default/ThreeContent.astro";
-// import TitleOnly from "@templates/default/TitleOnly.astro";
-// import ContentWithCaption from "@templates/default/ContentWithCaption.astro";
-// import VerticalTitleAndText from "@templates/default/VerticalTitleAndText.astro";
-// import MainPoint from "@templates/default/MainPoint.astro";
-// import BigNumber from "@templates/default/BigNumber.astro";
 import Viewport from "@components/Viewport.astro";
-// import Blank from "@templates/default/Blank.astro";
 import FourContent from "@templates/business/FourContent.astro";
 import FullSlideContent from "@templates/business/FullSlideContent.astro";
 import ThankYou from "@templates/business/ThankYou.astro";
 import ThreeContent from "@templates/business/ThreeContent.astro";
+import TwoColumnFullBleed from "@templates/business/TwoColumnFullBleed.astro";
 
 const { slug } = Astro.params;
 
@@ -24,15 +16,7 @@ export const getStaticPaths = (() => {
   return [
     { params: { slug: "title-slide" } },
     { params: { slug: "about-us" } },
-    // { params: { slug: "section-header" } },
-    // { params: { slug: "two-content" } },
-    // { params: { slug: "three-content" } },
-    // { params: { slug: "title-only" } },
-    // { params: { slug: "content-with-caption" } },
-    // { params: { slug: "vertical-title-and-text-left" } },
-    // { params: { slug: "vertical-title-and-text-right" } },
-    // { params: { slug: "main-point" } },
-    // { params: { slug: "big-number" } },
+    { params: { slug: "two-column-full-bleed" } },
     { params: { slug: "three-content" } },
     { params: { slug: "four-content" } },
     { params: { slug: "full-slide-content" } },
@@ -45,23 +29,7 @@ export const getStaticPaths = (() => {
   <Viewport>
     {slug === "title-slide" && <TitleSlide />}
     {slug === "about-us" && <AboutUs />}
-    <!-- {slug === "section-header" && <SectionHeader />}
-    {slug === "two-content" && <TwoContent />}
-    {slug === "three-content" && <ThreeContent />}
-    {slug === "title-only" && <TitleOnly />}
-    {slug === "content-with-caption" && <ContentWithCaption />}
-    {
-      slug === "vertical-title-and-text-left" && (
-        <VerticalTitleAndText variant="left" />
-      )
-    }
-    {
-      slug === "vertical-title-and-text-right" && (
-        <VerticalTitleAndText variant="right" />
-      )
-    }
-    {slug === "main-point" && <MainPoint />}
-    {slug === "big-number" && <BigNumber />} -->
+    {slug === "two-column-full-bleed" && <TwoColumnFullBleed />}
     {slug === "three-content" && <ThreeContent />}
     {slug === "four-content" && <FourContent />}
     {slug === "full-slide-content" && <FullSlideContent />}

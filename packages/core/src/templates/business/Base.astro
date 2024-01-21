@@ -10,5 +10,6 @@ const { class: userClass } = Astro.props;
 ---
 
 <Slide class={`px-[100px] py-[120px] ${userClass ? userClass : ""}`}>
+  <slot name="background" slot="background" />
   <slot />
 </Slide>

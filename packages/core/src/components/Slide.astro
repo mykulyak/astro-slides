@@ -10,5 +10,8 @@ const { class: userClass } = Astro.props;
   data-astro-slides-slide
   class:list={["relative", "w-full h-full", userClass]}
 >
+  <div class="absolute w-full h-full z-[-1]">
+    <slot name="background" />
+  </div>
   <slot />
 </section>

@@ -6,8 +6,14 @@ import SlideTitle from "./SlideTitle.astro";
 // FIXME typographic scale for content
 ---
 
-<BaseSlide class="about-us-slide-layout debug1">
-  <SlideTitle class="debug1">
+<BaseSlide class="about-us-slide-layout">
+  <div
+    slot="background"
+    class="absolute top-0 bottom-0 right-0 w-[20%] bg-[#202020]"
+  >
+  </div>
+
+  <SlideTitle>
     <slot name="title">The <em>title</em> slot</slot>
   </SlideTitle>
   <div class="row-span-2">
