@@ -1,8 +1,10 @@
 ---
 import BaseSlide from "@components/Slide.astro";
-import TextPlaceholder from "@components/placeholders/Text.astro";
 import PicturePlaceholder from "@components/placeholders/Picture.astro";
 import SlideTitle from "./SlideTitle.astro";
+import List from "@components/lists/List.astro";
+import ListItem from "@components/lists/ListItem.astro";
+import TextBlock from "./TextBlock.astro";
 ---
 
 <BaseSlide class="two-column-full-bleed-slide-layout">
@@ -11,9 +13,36 @@ import SlideTitle from "./SlideTitle.astro";
       <slot name="title"><em>title</em> slot</slot>
     </SlideTitle>
     <slot name="left">
-      <div class="h-full w-full">
-        <TextPlaceholder class="min-h-0" />
-      </div>
+      <TextBlock>
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed euismod,
+        diam sit amet dictum aliquam.
+      </TextBlock>
+      <List class="grid grid-rows-2 grid-cols-2">
+        <ListItem
+          icon="prog_lang/python"
+          caption="Python"
+          description="Lorem ipsum dolor sit amet, consectetur adipiscing. Consectetur adipiscing elit !"
+          vertical
+        />
+        <ListItem
+          icon="prog_lang/typescript"
+          caption="TypeScript"
+          description="Lorem ipsum dolor sit amet, consectetur adipiscing. Consectetur adipiscing elit !"
+          vertical
+        />
+        <ListItem
+          icon="prog_lang/cplusplus"
+          caption="C++"
+          description="Lorem ipsum dolor sit amet, consectetur adipiscing. Consectetur adipiscing elit !"
+          vertical
+        />
+        <ListItem
+          icon="prog_lang/astro"
+          caption="Astro"
+          description="Lorem ipsum dolor sit amet, consectetur adipiscing. Consectetur adipiscing elit !"
+          vertical
+        />
+      </List>
     </slot>
   </div>
   <div>
@@ -26,15 +55,16 @@ import SlideTitle from "./SlideTitle.astro";
       <PicturePlaceholder />
     </slot>
   </div>
-</BaseSlide>
 
-<style is:global>
-  .two-column-full-bleed-slide-layout {
-    margin: 0;
-    padding: 0;
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    grid-template-rows: repeat(2, 1fr);
-    gap: 20px;
-  }
-</style>
+  <style is:global>
+    .two-column-full-bleed-slide-layout {
+      margin: 0;
+      padding: 0;
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      grid-template-rows: repeat(2, 1fr);
+      column-gap: 80px;
+      row-gap: 20px;
+    }
+  </style>
+</BaseSlide>
