@@ -13,6 +13,7 @@ const { variant = "left" } = Astro.props;
 
 <BaseSlide
   layout={variant === "left" ? "h+1x1l" : "h+1x1r"}
+  layoutSpacing="90x20"
   class="vertical-title"
 >
   <div class={variant === "left" ? "" : "order-1"}>
@@ -32,9 +33,3 @@ const { variant = "left" } = Astro.props;
     </slot>
   </div>
 </BaseSlide>
-
-<style is:global>
-  .vertical-title {
-    column-gap: 90px;
-  }
-</style>

@@ -1,12 +1,49 @@
 ---
-import type { SlideLayout } from "./slideLayout";
+import type { SlideLayout, SlideSpacing } from "./slideLayout";
 
 interface Props {
   class?: string;
   layout?: SlideLayout;
+  layoutSpacing?: SlideSpacing;
 }
 
-const { class: userClass, layout } = Astro.props;
+const { class: userClass, layout, layoutSpacing } = Astro.props;
+
+const LAYOUT_CLASSES: Record<SlideLayout, string> = {
+  "1": "slide-layout-1",
+  "1x1": "slide-layout-1x1",
+  "1x2": "slide-layout-1x2",
+  "1x2asym": "slide-layout-1x2-asymmetric",
+  "2x2": "slide-layout-2x2",
+  "3x3": "slide-layout-3x3",
+  "3x4": "slide-layout-3x4",
+  "4x4": "slide-layout-4x4",
+  "5x4": "slide-layout-5x4",
+  "5x5": "slide-layout-5x5",
+  "6x6": "slide-layout-6x6",
+  "h+1x1": "slide-layout-header-1x1",
+  "h+1x1l": "slide-layout-header-1x1-left",
+  "h+1x1r": "slide-layout-header-1x1-right",
+  "h+2x1": "slide-layout-header-2x1",
+  "h+2x1al": "slide-layout-header-2x1-asymmetric-left",
+  "h+2x1ar": "slide-layout-header-2x1-asymmetric-right",
+  "h+3x1": "slide-layout-header-3x1",
+  "h+4x1": "slide-layout-header-4x1",
+  "h+5x1": "slide-layout-header-5x1",
+  "h+5x3": "slide-layout-header-5x3",
+  "fib4": "slide-layout-fibonacci-4",
+  "fib5": "slide-layout-fibonacci-5",
+};
+
+const layoutClass = layout && LAYOUT_CLASSES[layout];
+
+const LAYOUT_SPACING_CLASSES: Record<SlideSpacing, string> = {
+  "60x20": "slide-spacing-60x20",
+  "90x20": "slide-spacing-90x20",
+};
+
+const layoutSpacingClass =
+  layoutSpacing && LAYOUT_SPACING_CLASSES[layoutSpacing];
 ---
 
 <section
@@ -16,29 +53,8 @@ const { class: userClass, layout } = Astro.props;
     "w-full",
     "h-full",
     userClass,
-    layout === "1" && "slide-layout-1",
-    layout === "1x1" && "slide-layout-1x1",
-    layout === "1x2" && "slide-layout-1x2",
-    layout === "1x2asym" && "slide-layout-1x2-asymmetric",
-    layout === "2x2" && "slide-layout-2x2",
-    layout === "3x3" && "slide-layout-3x3",
-    layout === "3x4" && "slide-layout-3x4",
-    layout === "4x4" && "slide-layout-4x4",
-    layout === "5x4" && "slide-layout-5x4",
-    layout === "5x5" && "slide-layout-5x5",
-    layout === "6x6" && "slide-layout-6x6",
-    layout === "h+1x1" && "slide-layout-header-1x1",
-    layout === "h+1x1l" && "slide-layout-header-1x1-left",
-    layout === "h+1x1r" && "slide-layout-header-1x1-right",
-    layout === "h+2x1" && "slide-layout-header-2x1",
-    layout === "h+2x1al" && "slide-layout-header-2x1-asymmetric-left",
-    layout === "h+2x1ar" && "slide-layout-header-2x1-asymmetric-right",
-    layout === "h+3x1" && "slide-layout-header-3x1",
-    layout === "h+4x1" && "slide-layout-header-4x1",
-    layout === "h+5x1" && "slide-layout-header-5x1",
-    layout === "h+5x3" && "slide-layout-header-5x3",
-    layout === "fib4" && "slide-layout-fibonacci-4",
-    layout === "fib5" && "slide-layout-fibonacci-5",
+    layoutClass,
+    layoutSpacingClass,
   ]}
 >
   <div class="absolute w-full h-full z-[-1]">
@@ -186,5 +202,15 @@ const { class: userClass, layout } = Astro.props;
     display: grid;
     grid-template-columns: 1fr 1fr 2fr 3fr 5fr;
     grid-template-rows: 1fr 1fr 2fr 3fr 5fr;
+  }
+</style>
+
+<style>
+  .slide-spacing-60x20 {
+    gap: 20px 60px;
+  }
+
+  .slide-spacing-90x20 {
+    gap: 20px 90px;
   }
 </style>

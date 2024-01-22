@@ -27,7 +27,7 @@
  *      minimum space (this is much like HP presentation template)
  * - `"fib4"` - 4x4 Fibonacci grid
  * - `"fib5"` - 5x5 Fibonacci grid
- * 
+ *
  * FIXME more semantic, less cryptic names
  */
 export type SlideLayout =
@@ -54,3 +54,13 @@ export type SlideLayout =
   | "h+5x3"
   | "fib4"
   | "fib5";
+
+/**
+ * Defines possible grid spacing.
+ *
+ * Possible values are:
+ *
+ * - `"60x20"` - 60px column, 20px row
+ * - `"90x20"` - 90px column, 20px row
+ */
+export type SlideSpacing = "60x20" | "90x20";

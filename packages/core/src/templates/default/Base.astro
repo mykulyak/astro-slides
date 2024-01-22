@@ -1,18 +1,20 @@
 ---
 import Slide from "@components/Slide.astro";
 import "./globalStyles.astro";
-import type { SlideLayout } from "@components/slideLayout";
+import type { SlideLayout, SlideSpacing } from "@components/slideLayout";
 
 interface Props {
   class?: string;
   layout?: SlideLayout;
+  layoutSpacing?: SlideSpacing;
 }
 
-const { class: userClass, layout } = Astro.props;
+const { class: userClass, layout, layoutSpacing } = Astro.props;
 ---
 
 <Slide
   layout={layout}
+  layoutSpacing={layoutSpacing}
   class={`px-[55px] pt-[80px] pb-[100px] ${userClass ? userClass : ""}`}
 >
   <slot />
