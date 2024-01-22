@@ -1,0 +1,14 @@
+---
+import * as emoji from "node-emoji";
+
+interface Props {
+  name: string;
+  class?: string;
+}
+
+const { name, class: userClass } = Astro.props;
+
+const text = emoji.find(name);
+---
+
+<span class={userClass}>{text?.emoji}</span>

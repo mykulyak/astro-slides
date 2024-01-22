@@ -1,11 +1,12 @@
 ---
-import ChartPlaceholder from "@components/placeholders/Chart.astro";
-import ContentPlaceholder from "@components/placeholders/Content.astro";
-import DiagramPlaceholder from "@components/placeholders/Diagram.astro";
-import PhotoPlaceholder from "@components/placeholders/Photo.astro";
-import PicturePlaceholder from "@components/placeholders/Picture.astro";
-import TablePlaceholder from "@components/placeholders/Table.astro";
-import TextPlaceholder from "@components/placeholders/Text.astro";
+import Emoji from "@components/Emoji.astro";
+// import ChartPlaceholder from "@components/placeholders/Chart.astro";
+// import ContentPlaceholder from "@components/placeholders/Content.astro";
+// import DiagramPlaceholder from "@components/placeholders/Diagram.astro";
+// import PhotoPlaceholder from "@components/placeholders/Photo.astro";
+// import PicturePlaceholder from "@components/placeholders/Picture.astro";
+// import TablePlaceholder from "@components/placeholders/Table.astro";
+// import TextPlaceholder from "@components/placeholders/Text.astro";
 import Layout from "@layouts/Layout.astro";
 // import ImageStack from "@components/ImageStack.astro";
 // import image1 from "../../assets/images/rect1.png";
@@ -25,8 +26,7 @@ import Layout from "@layouts/Layout.astro";
       { image: image3, alt: "Blue Rectangle", angle: 0 },
     ]}
   />
-</Layout> --><!-- Placeholders -->
-<Layout title="Astro Slides - placeholders">
+</Layout> --><!-- Placeholders --><!-- <Layout title="Astro Slides - placeholders">
   <div class="grid grid-cols-2 grid-rows-3 gap-10 bg-slate-100">
     <div><ChartPlaceholder /></div>
     <div><ContentPlaceholder /></div>
@@ -36,4 +36,21 @@ import Layout from "@layouts/Layout.astro";
     <div><TablePlaceholder /></div>
     <div><TextPlaceholder /></div>
   </div>
+</Layout> -->
+<Layout title="Astro Slides - Emoji">
+  <div class="w-full h-full grid items-center justify-items-center">
+    <Emoji name="💚" class="text-[100px] heartbeat" />
+  </div>
 </Layout>
+
+<style is:global>
+  @keyframes heartbeat {
+    to {
+      transform: scale(1.1);
+    }
+  }
+
+  .heartbeat {
+    animation: heartbeat 0.33s infinite alternate;
+  }
+</style>
