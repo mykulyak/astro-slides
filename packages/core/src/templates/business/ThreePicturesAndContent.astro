@@ -1,0 +1,34 @@
+---
+import BaseSlide from "@components/Slide.astro";
+import PicturePlaceholder from "@components/placeholders/Picture.astro";
+import SlideTitle from "./SlideTitle.astro";
+import Content from "@components/placeholders/Content.astro";
+---
+
+<BaseSlide layout="2x2" layoutSpacing="25x25">
+  <div class="pl-[100px] pt-[120px]">
+    <SlideTitle>
+      <slot name="title">The <em>title</em> slot</slot>
+    </SlideTitle>
+    <div class="self-stretch">
+      <slot name="left_top">
+        <Content>This is <code>left_top</code> slot.</Content>
+      </slot>
+    </div>
+  </div>
+  <div>
+    <slot name="left_bottom">
+      <PicturePlaceholder />
+    </slot>
+  </div>
+  <div>
+    <slot name="right_top">
+      <PicturePlaceholder />
+    </slot>
+  </div>
+  <div>
+    <slot name="right_bottom">
+      <PicturePlaceholder />
+    </slot>
+  </div>
+</BaseSlide>

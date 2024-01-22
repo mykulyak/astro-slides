@@ -36,6 +36,7 @@ export type SlideLayout =
   | "1x2"
   | "1x2asym"
   | "2x2"
+  | "3x1"
   | "3x3"
   | "3x4"
   | "4x4"
@@ -65,4 +66,4 @@ export type SlideLayout =
  * - `"50x50"` - 50px column, 50px row
  * - `"75x25"` - 75px column, 25px row
  */
-export type SlideSpacing = "60x20" | "90x20" | "50x50" | "75x25";
+export type SlideSpacing = "60x20" | "90x20" | "50x50" | "25x25" | "75x25";

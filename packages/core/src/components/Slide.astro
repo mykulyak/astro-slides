@@ -15,6 +15,7 @@ const LAYOUT_CLASSES: Record<SlideLayout, string> = {
   "1x2": "slide-layout-1x2",
   "1x2asym": "slide-layout-1x2-asymmetric",
   "2x2": "slide-layout-2x2",
+  "3x1": "slide-layout-3x1",
   "3x3": "slide-layout-3x3",
   "3x4": "slide-layout-3x4",
   "4x4": "slide-layout-4x4",
@@ -41,6 +42,7 @@ const LAYOUT_SPACING_CLASSES: Record<SlideSpacing, string> = {
   "60x20": "slide-spacing-60x20",
   "90x20": "slide-spacing-90x20",
   "50x50": "slide-spacing-50x50",
+  "25x25": "slide-spacing-25x25",
   "75x25": "slide-spacing-75x25",
 };
 
@@ -96,6 +98,12 @@ const layoutSpacingClass =
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     grid-template-rows: repeat(2, 1fr);
+  }
+
+  .slide-layout-3x1 {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: 1fr;
   }
 
   .slide-layout-3x3 {
@@ -218,6 +226,10 @@ const layoutSpacingClass =
 
   .slide-spacing-50x50 {
     gap: 50px;
+  }
+
+  .slide-spacing-25x25 {
+    gap: 25px;
   }
 
   .slide-spacing-75x25 {

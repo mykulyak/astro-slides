@@ -4,9 +4,11 @@ import TitleSlide from "../TitleSlide.astro";
 import AboutUs from "../AboutUs.astro";
 import FullSlideContent from "../FullSlideContent.astro";
 import ThankYou from "../ThankYou.astro";
-import TwoColumnFullBleed from "../TwoColumnFullBleed.astro";
+import ThreePicturesAndContent from "../ThreePicturesAndContent.astro";
+import TwoPicturesAndContent from "../TwoPicturesAndContent.astro";
 import ThreeContent from "../ThreeContent.astro";
 import FourContent from "../FourContent.astro";
+import Three from "../Three.astro";
 ---
 
 <section class="page-layout">
@@ -23,7 +25,13 @@ import FourContent from "../FourContent.astro";
     </Fragment>
   </Card>
   <Card>
-    <TwoColumnFullBleed />
+    <ThreePicturesAndContent />
+    <Fragment slot="title">
+      <a href="three-pictures-and-content">Three Pictures and Content</a>
+    </Fragment>
+  </Card>
+  <Card>
+    <TwoPicturesAndContent />
     <Fragment slot="title">
       <a href="two-column-full-bleed">Two Column Content (Full Bleed)</a>
     </Fragment>
@@ -32,6 +40,12 @@ import FourContent from "../FourContent.astro";
     <ThreeContent />
     <Fragment slot="title">
       <a href="three-content">Three Column Content</a>
+    </Fragment>
+  </Card>
+  <Card>
+    <Three />
+    <Fragment slot="title">
+      <a href="three">Three Column Content (inline title)</a>
     </Fragment>
   </Card>
   <Card>

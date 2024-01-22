@@ -8,7 +8,9 @@ import FourContent from "@templates/business/FourContent.astro";
 import FullSlideContent from "@templates/business/FullSlideContent.astro";
 import ThankYou from "@templates/business/ThankYou.astro";
 import ThreeContent from "@templates/business/ThreeContent.astro";
-import TwoColumnFullBleed from "@templates/business/TwoColumnFullBleed.astro";
+import TwoPicturesAndContent from "@templates/business/TwoPicturesAndContent.astro";
+import ThreePicturesAndContent from "@templates/business/ThreePicturesAndContent.astro";
+import Three from "@templates/business/Three.astro";
 
 const { slug } = Astro.params;
 
@@ -17,7 +19,9 @@ export const getStaticPaths = (() => {
     { params: { slug: "title-slide" } },
     { params: { slug: "about-us" } },
     { params: { slug: "two-column-full-bleed" } },
+    { params: { slug: "three-pictures-and-content" } },
     { params: { slug: "three-content" } },
+    { params: { slug: "three" } },
     { params: { slug: "four-content" } },
     { params: { slug: "full-slide-content" } },
     { params: { slug: "thank-you" } },
@@ -29,8 +33,10 @@ export const getStaticPaths = (() => {
   <Viewport>
     {slug === "title-slide" && <TitleSlide />}
     {slug === "about-us" && <AboutUs />}
-    {slug === "two-column-full-bleed" && <TwoColumnFullBleed />}
+    {slug === "two-column-full-bleed" && <TwoPicturesAndContent />}
+    {slug === "three-pictures-and-content" && <ThreePicturesAndContent />}
     {slug === "three-content" && <ThreeContent />}
+    {slug === "three" && <Three />}
     {slug === "four-content" && <FourContent />}
     {slug === "full-slide-content" && <FullSlideContent />}
     {slug === "thank-you" && <ThankYou />}
