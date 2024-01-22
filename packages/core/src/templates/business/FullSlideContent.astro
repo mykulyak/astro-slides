@@ -1,0 +1,12 @@
+---
+import ContentPlaceholder from "@components/placeholders/Content.astro";
+import BaseSlide from "./Base.astro";
+---
+
+<BaseSlide layout="1">
+  <slot>
+    <ContentPlaceholder>
+      This is the <code>default</code> slot
+    </ContentPlaceholder>
+  </slot>
+</BaseSlide>

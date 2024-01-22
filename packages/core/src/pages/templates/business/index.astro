@@ -1,0 +1,25 @@
+---
+import Presentation from "@components/Presentation.astro";
+import Layout from "../../../layouts/Layout.astro";
+import TitleSlide from "@templates/business/TitleSlide.astro";
+import AboutUs from "@templates/business/AboutUs.astro";
+import FourContent from "@templates/business/FourContent.astro";
+import FullSlideContent from "@templates/business/FullSlideContent.astro";
+import ThreeContent from "@templates/business/ThreeContent.astro";
+import TwoPicturesAndContent from "@templates/business/TwoPicturesAndContent.astro";
+import ThreePicturesAndContent from "@templates/business/ThreePicturesAndContent.astro";
+import Three from "@templates/business/Three.astro";
+---
+
+<Layout title="Astro Slides template">
+  <Presentation>
+    <TitleSlide />
+    <AboutUs />
+    <TwoPicturesAndContent />
+    <ThreePicturesAndContent />
+    <ThreeContent />
+    <Three />
+    <FourContent />
+    <FullSlideContent />
+  </Presentation>
+</Layout>

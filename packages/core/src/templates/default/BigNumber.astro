@@ -3,7 +3,7 @@ import BaseSlide from "./Base.astro";
 import TextPlaceholder from "@components/placeholders/Text.astro";
 ---
 
-<BaseSlide class="big-number-layout">
+<BaseSlide layout="1x2asym" layoutSpacing="90x20">
   <div class="text-[270px] leading-[270px] text-center self-end">
     <slot name="number">
       <TextPlaceholder><code>number</code></TextPlaceholder>
@@ -17,12 +17,3 @@ import TextPlaceholder from "@components/placeholders/Text.astro";
     </slot>
   </div>
 </BaseSlide>
-
-<style is:global>
-  .big-number-layout {
-    display: grid;
-    grid-template-columns: 1fr;
-    grid-template-rows: 60% 40%;
-    row-gap: 16px;
-  }
-</style>

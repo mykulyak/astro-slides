@@ -3,7 +3,7 @@ import BaseSlide from "./Base.astro";
 import TextPlaceholder from "@components/placeholders/Text.astro";
 ---
 
-<BaseSlide class="two-content-layout">
+<BaseSlide layout="h+2x1" layoutSpacing="90x20">
   <div class="text-[64px] col-span-2">
     <slot name="title">
       <TextPlaceholder>
@@ -26,13 +26,3 @@ import TextPlaceholder from "@components/placeholders/Text.astro";
     </slot>
   </div>
 </BaseSlide>
-
-<style is:global>
-  .two-content-layout {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    grid-template-rows: auto 1fr;
-    row-gap: 20px;
-    column-gap: 90px;
-  }
-</style>

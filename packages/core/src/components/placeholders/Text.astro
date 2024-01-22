@@ -1,7 +1,13 @@
 ---
 import Placeholder from "../Placeholder.astro";
+
+interface Props {
+  class?: string;
+}
+
+const { class: userClass } = Astro.props;
 ---
 
-<Placeholder>
+<Placeholder class:list={["py-2", userClass || ""]}>
   <slot>Block of text</slot>
 </Placeholder>

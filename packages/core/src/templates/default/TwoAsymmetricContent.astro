@@ -10,9 +10,8 @@ const { variant = "left" } = Astro.props;
 ---
 
 <BaseSlide
-  class={variant === "left"
-    ? "two-asymmetric-content-layout-left"
-    : "two-asymmetric-content-layout-right"}
+  layout={variant === "left" ? "h+2x1al" : "h+2x1ar"}
+  layoutSpacing="90x20"
 >
   <div class="text-[64px] col-span-2">
     <slot name="title">
@@ -36,21 +35,3 @@ const { variant = "left" } = Astro.props;
     </slot>
   </div>
 </BaseSlide>
-
-<style is:global>
-  .two-asymmetric-content-layout-left {
-    display: grid;
-    grid-template-columns: 1fr 2fr;
-    grid-template-rows: auto 1fr;
-    row-gap: 20px;
-    column-gap: 90px;
-  }
-
-  .two-asymmetric-content-layout-right {
-    display: grid;
-    grid-template-columns: 2fr 1fr;
-    grid-template-rows: auto 1fr;
-    row-gap: 20px;
-    column-gap: 90px;
-  }
-</style>

@@ -3,9 +3,7 @@ import BaseSlide from "./Base.astro";
 import TextPlaceholder from "@components/placeholders/Text.astro";
 ---
 
-<BaseSlide
-  class="grid grid-template-rows-1 grid-template-columns-1 content-center"
->
+<BaseSlide layout="1">
   <div class="text-[90px]">
     <slot name="title" /><TextPlaceholder>
       This is the <code>title</code> slot

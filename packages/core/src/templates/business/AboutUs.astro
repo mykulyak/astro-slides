@@ -1,0 +1,33 @@
+---
+import ContentPlaceholder from "@components/placeholders/Content.astro";
+import BaseSlide from "./Base.astro";
+import SlideTitle from "./SlideTitle.astro";
+
+// FIXME typographic scale for content
+---
+
+<BaseSlide layout="h+2x1" layoutSpacing="50x50">
+  <div
+    slot="background"
+    class="absolute top-0 bottom-0 right-0 w-[20%] bg-[#202020]"
+  >
+  </div>
+
+  <SlideTitle>
+    <slot name="title">The <em>title</em> slot</slot>
+  </SlideTitle>
+  <div class="row-span-2">
+    <slot name="right_content">
+      <ContentPlaceholder>
+        This is the <code>right_content</code> placeholder
+      </ContentPlaceholder>
+    </slot>
+  </div>
+  <div>
+    <slot name="left_content">
+      <ContentPlaceholder>
+        This is the <code>left_content</code> placeholder
+      </ContentPlaceholder>
+    </slot>
+  </div>
+</BaseSlide>

@@ -3,18 +3,10 @@ import BaseSlide from "./Base.astro";
 import TextPlaceholder from "@components/placeholders/Text.astro";
 ---
 
-<BaseSlide class="title-only-layout">
+<BaseSlide layout="h+1x1">
   <div class="text-[64px]">
     <slot name="title">
       <TextPlaceholder>This is the <code>title</code> slot</TextPlaceholder>
     </slot>
   </div>
 </BaseSlide>
-
-<style is:global>
-  .title-only-layout {
-    display: grid;
-    grid-template-columns: 1fr;
-    grid-template-rows: min-content;
-  }
-</style>

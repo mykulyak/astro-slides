@@ -1,11 +1,238 @@
 ---
+import type { SlideLayout, SlideSpacing } from "./slideLayout";
+
 interface Props {
   class?: string;
+  layout?: SlideLayout;
+  layoutSpacing?: SlideSpacing;
 }
 
-const { class: userClass } = Astro.props;
+const { class: userClass, layout, layoutSpacing } = Astro.props;
+
+const LAYOUT_CLASSES: Record<SlideLayout, string> = {
+  "1": "slide-layout-1",
+  "1x1": "slide-layout-1x1",
+  "1x2": "slide-layout-1x2",
+  "1x2asym": "slide-layout-1x2-asymmetric",
+  "2x2": "slide-layout-2x2",
+  "3x1": "slide-layout-3x1",
+  "3x3": "slide-layout-3x3",
+  "3x4": "slide-layout-3x4",
+  "4x4": "slide-layout-4x4",
+  "5x4": "slide-layout-5x4",
+  "5x5": "slide-layout-5x5",
+  "6x6": "slide-layout-6x6",
+  "h+1x1": "slide-layout-header-1x1",
+  "h+1x1l": "slide-layout-header-1x1-left",
+  "h+1x1r": "slide-layout-header-1x1-right",
+  "h+2x1": "slide-layout-header-2x1",
+  "h+2x1al": "slide-layout-header-2x1-asymmetric-left",
+  "h+2x1ar": "slide-layout-header-2x1-asymmetric-right",
+  "h+3x1": "slide-layout-header-3x1",
+  "h+4x1": "slide-layout-header-4x1",
+  "h+5x1": "slide-layout-header-5x1",
+  "h+5x3": "slide-layout-header-5x3",
+  "fib4": "slide-layout-fibonacci-4",
+  "fib5": "slide-layout-fibonacci-5",
+};
+
+const layoutClass = layout && LAYOUT_CLASSES[layout];
+
+const LAYOUT_SPACING_CLASSES: Record<SlideSpacing, string> = {
+  "60x20": "slide-spacing-60x20",
+  "90x20": "slide-spacing-90x20",
+  "50x50": "slide-spacing-50x50",
+  "25x25": "slide-spacing-25x25",
+  "75x25": "slide-spacing-75x25",
+};
+
+const layoutSpacingClass =
+  layoutSpacing && LAYOUT_SPACING_CLASSES[layoutSpacing];
 ---
 
-<section data-astro-slides-slide class:list={["w-full h-full", userClass]}>
+<section
+  data-astro-slides-slide
+  class:list={[
+    "relative",
+    "w-full",
+    "h-full",
+    userClass,
+    layoutClass,
+    layoutSpacingClass,
+  ]}
+>
+  <div class="absolute w-full h-full z-[-1]">
+    <slot name="background" />
+  </div>
   <slot />
 </section>
+
+<style>
+  .slide-layout-1 {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr;
+    justify-items: center;
+    align-items: center;
+  }
+
+  .slide-layout-1x1 {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr;
+  }
+
+  .slide-layout-1x2 {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: repeat(2, 1fr);
+  }
+
+  .slide-layout-1x2-asymmetric {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 60% 40%;
+  }
+
+  .slide-layout-2x2 {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(2, 1fr);
+  }
+
+  .slide-layout-3x1 {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: 1fr;
+  }
+
+  .slide-layout-3x3 {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(3, 1fr);
+  }
+
+  .slide-layout-3x4 {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(4, 1fr);
+  }
+
+  .slide-layout-4x4 {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: repeat(4, 1fr);
+  }
+
+  .slide-layout-5x4 {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    grid-template-rows: repeat(4, 1fr);
+  }
+
+  .slide-layout-5x5 {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    grid-template-rows: repeat(5, 1fr);
+  }
+
+  .slide-layout-6x6 {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    grid-template-rows: repeat(6, 1fr);
+  }
+
+  .slide-layout-header-1x1 {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: min-content 1fr;
+  }
+
+  .slide-layout-header-1x1-left {
+    display: grid;
+    grid-template-columns: min-content 1fr;
+    grid-template-rows: 1fr;
+  }
+
+  .slide-layout-header-1x1-right {
+    display: grid;
+    grid-template-columns: 1fr min-content;
+    grid-template-rows: 1fr;
+  }
+
+  .slide-layout-header-2x1 {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: min-content 1fr;
+  }
+
+  .slide-layout-header-2x1-asymmetric-left {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    grid-template-rows: min-content 1fr;
+  }
+
+  .slide-layout-header-2x1-asymmetric-right {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    grid-template-rows: min-content 1fr;
+  }
+
+  .slide-layout-header-3x1 {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: min-content 1fr;
+  }
+
+  .slide-layout-header-4x1 {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: min-content 1fr;
+  }
+
+  .slide-layout-header-5x1 {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    grid-template-rows: min-content 1fr;
+  }
+
+  .slide-layout-header-5x3 {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    grid-template-rows: min-content repeat(3, 1fr);
+  }
+
+  .slide-layout-fibonacci-4 {
+    display: grid;
+    grid-template-columns: 1fr 1fr 2fr 3fr;
+    grid-template-rows: 1fr 1fr 2fr 3fr;
+  }
+
+  .slide-layout-fibonacci-5 {
+    display: grid;
+    grid-template-columns: 1fr 1fr 2fr 3fr 5fr;
+    grid-template-rows: 1fr 1fr 2fr 3fr 5fr;
+  }
+</style>
+
+<style>
+  .slide-spacing-60x20 {
+    gap: 20px 60px;
+  }
+
+  .slide-spacing-90x20 {
+    gap: 20px 90px;
+  }
+
+  .slide-spacing-50x50 {
+    gap: 50px;
+  }
+
+  .slide-spacing-25x25 {
+    gap: 25px;
+  }
+
+  .slide-spacing-75x25 {
+    gap: 25px 75px;
+  }
+</style>

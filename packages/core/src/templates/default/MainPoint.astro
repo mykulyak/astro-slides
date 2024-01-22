@@ -3,8 +3,8 @@ import BaseSlide from "./Base.astro";
 import TextPlaceholder from "@components/placeholders/Text.astro";
 ---
 
-<BaseSlide class="main-point-layout">
-  <div class="text-[120px]">
+<BaseSlide layout="1x1">
+  <div class="text-[120px] max-w-[70%] self-center">
     <slot name="content">
       <TextPlaceholder>
         This is the<br /><code>content</code> slot
@@ -12,12 +12,3 @@ import TextPlaceholder from "@components/placeholders/Text.astro";
     </slot>
   </div>
 </BaseSlide>
-
-<style is:global>
-  .main-point-layout {
-    display: grid;
-    grid-template-columns: 70%;
-    grid-template-rows: 1fr;
-    align-content: center;
-  }
-</style>

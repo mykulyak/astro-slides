@@ -1,0 +1,114 @@
+---
+import { Icon } from "astro-icon/components";
+
+interface Props {
+  icon?: string;
+  caption?: string;
+  description?: string;
+  vertical?: boolean;
+}
+
+const { icon, caption, description, vertical } = Astro.props;
+
+let iconHtml: string;
+if (Astro.slots.has("icon")) {
+  if (icon) {
+    throw new Error(
+      "You cannot use the icon prop and the icon slot at the same time."
+    );
+  }
+  iconHtml = await Astro.slots.render("icon");
+} else {
+  iconHtml = "";
+}
+
+let captionHtml: string;
+if (Astro.slots.has("caption")) {
+  if (caption) {
+    throw new Error(
+      "You cannot use the caption prop and the caption slot at the same time."
+    );
+  }
+  captionHtml = await Astro.slots.render("caption");
+} else {
+  captionHtml = "";
+}
+
+let descriptionHtml: string;
+if (Astro.slots.has("description")) {
+  if (description) {
+    throw new Error(
+      "You cannot use the description prop and the description slot at the same time."
+    );
+  }
+  descriptionHtml = await Astro.slots.render("description");
+} else {
+  descriptionHtml = "";
+}
+---
+
+<li class:list={[vertical ? "list-item-vertical" : "list-item"]}>
+  {
+    icon && (
+      <div class="w-[64px] h-[64px] row-span-2 self-center">
+        <Icon name={icon} class="w-full h-full" />
+      </div>
+    )
+  }
+  {
+    iconHtml && (
+      <div
+        class="w-[64px] h-[64px] row-span-2 self-center"
+        set:html={iconHtml}
+      />
+    )
+  }
+
+  {
+    caption && (
+      <div class="self-start place-self-start text-[30px] italic font-bold">
+        {caption}
+      </div>
+    )
+  }
+  {
+    captionHtml && (
+      <div
+        class="self-start place-self-start text-[30px] italic font-bold"
+        set:html={captionHtml}
+      />
+    )
+  }
+
+  {
+    description && (
+      <div class="self-start place-self-start text-[24px]">{description}</div>
+    )
+  }
+  {
+    descriptionHtml && (
+      <div
+        class="self-start place-self-start text-[24px]"
+        set:html={descriptionHtml}
+      />
+    )
+  }
+</li>
+
+<style>
+  .list-item {
+    display: grid;
+    grid-template-columns: min-content 1fr;
+    grid-template-rows: repeat(2, min-content);
+    column-gap: 20px;
+    row-gap: 10px;
+  }
+
+  .list-item-vertical {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: repeat(3, min-content);
+    row-gap: 10px;
+    justify-items: center;
+  }
+</style>

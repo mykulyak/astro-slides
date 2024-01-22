@@ -15,7 +15,8 @@ const { class: userClass, layout, layoutSpacing } = Astro.props;
 <Slide
   layout={layout}
   layoutSpacing={layoutSpacing}
-  class={`px-[55px] pt-[80px] pb-[100px] ${userClass ? userClass : ""}`}
+  class={`px-[100px] py-[120px] ${userClass ? userClass : ""}`}
 >
+  <slot name="background" slot="background" />
   <slot />
 </Slide>

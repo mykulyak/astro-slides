@@ -1,0 +1,10 @@
+---
+import DarkBaseSlide from "./DarkBase.astro";
+import SlideTitle from "./SlideTitle.astro";
+---
+
+<DarkBaseSlide layout="1" layoutSpacing="50x50">
+  <SlideTitle class="text-white">
+    <slot name="title">This is the <em>title</em> slot</slot>
+  </SlideTitle>
+</DarkBaseSlide>

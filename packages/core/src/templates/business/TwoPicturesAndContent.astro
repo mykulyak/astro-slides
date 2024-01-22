@@ -1,0 +1,58 @@
+---
+import BaseSlide from "@components/Slide.astro";
+import PicturePlaceholder from "@components/placeholders/Picture.astro";
+import SlideTitle from "./SlideTitle.astro";
+import List from "@components/lists/List.astro";
+import ListItem from "@components/lists/ListItem.astro";
+import TextBlock from "./TextBlock.astro";
+---
+
+<BaseSlide layout="2x2" layoutSpacing="25x25">
+  <div class="row-span-2 pl-[100px] py-[120px]">
+    <SlideTitle>
+      <slot name="title"><em>title</em> slot</slot>
+    </SlideTitle>
+    <slot name="left">
+      <TextBlock>
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed euismod,
+        diam sit amet dictum aliquam.
+      </TextBlock>
+      <List class="grid grid-rows-2 grid-cols-2">
+        <ListItem
+          icon="prog_lang/python"
+          caption="Python"
+          description="Lorem ipsum dolor sit amet, consectetur adipiscing. Consectetur adipiscing elit !"
+          vertical
+        />
+        <ListItem
+          icon="prog_lang/typescript"
+          caption="TypeScript"
+          description="Lorem ipsum dolor sit amet, consectetur adipiscing. Consectetur adipiscing elit !"
+          vertical
+        />
+        <ListItem
+          icon="prog_lang/cplusplus"
+          caption="C++"
+          description="Lorem ipsum dolor sit amet, consectetur adipiscing. Consectetur adipiscing elit !"
+          vertical
+        />
+        <ListItem
+          icon="prog_lang/astro"
+          caption="Astro"
+          description="Lorem ipsum dolor sit amet, consectetur adipiscing. Consectetur adipiscing elit !"
+          vertical
+        />
+      </List>
+    </slot>
+  </div>
+  <div>
+    <slot name="right_top">
+      <PicturePlaceholder />
+    </slot>
+  </div>
+  <div>
+    <slot name="right_bottom">
+      <PicturePlaceholder />
+    </slot>
+  </div>
+</BaseSlide>
