@@ -6,7 +6,7 @@ import TextPlaceholder from "@components/placeholders/Text.astro";
 // TODO Make them optimal for every common aspect ratio.
 ---
 
-<BaseSlide class="title-slide-layout">
+<BaseSlide layout="1x2asym" class="title-slide-layout">
   <div class="self-end text-[130px] text-center">
     <slot name="title"
       ><TextPlaceholder>
@@ -25,8 +25,6 @@ import TextPlaceholder from "@components/placeholders/Text.astro";
 
 <style is:global>
   .title-slide-layout {
-    display: grid;
-    grid-template-rows: 60% 45%;
     row-gap: 8px;
   }
 </style>

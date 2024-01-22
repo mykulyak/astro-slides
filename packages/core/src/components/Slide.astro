@@ -17,14 +17,22 @@ const { class: userClass, layout } = Astro.props;
     "h-full",
     userClass,
     layout === "1" && "slide-layout-1",
+    layout === "1x1" && "slide-layout-1x1",
+    layout === "1x2" && "slide-layout-1x2",
+    layout === "1x2asym" && "slide-layout-1x2-asymmetric",
     layout === "2x2" && "slide-layout-2x2",
     layout === "3x3" && "slide-layout-3x3",
     layout === "3x4" && "slide-layout-3x4",
     layout === "4x4" && "slide-layout-4x4",
     layout === "5x4" && "slide-layout-5x4",
     layout === "5x5" && "slide-layout-5x5",
+    layout === "6x6" && "slide-layout-6x6",
     layout === "h+1x1" && "slide-layout-header-1x1",
+    layout === "h+1x1l" && "slide-layout-header-1x1-left",
+    layout === "h+1x1r" && "slide-layout-header-1x1-right",
     layout === "h+2x1" && "slide-layout-header-2x1",
+    layout === "h+2x1al" && "slide-layout-header-2x1-asymmetric-left",
+    layout === "h+2x1ar" && "slide-layout-header-2x1-asymmetric-right",
     layout === "h+3x1" && "slide-layout-header-3x1",
     layout === "h+4x1" && "slide-layout-header-4x1",
     layout === "h+5x1" && "slide-layout-header-5x1",
@@ -46,6 +54,24 @@ const { class: userClass, layout } = Astro.props;
     grid-template-rows: 1fr;
     justify-items: center;
     align-items: center;
+  }
+
+  .slide-layout-1x1 {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr;
+  }
+
+  .slide-layout-1x2 {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: repeat(2, 1fr);
+  }
+
+  .slide-layout-1x2-asymmetric {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 60% 40%;
   }
 
   .slide-layout-2x2 {
@@ -81,7 +107,13 @@ const { class: userClass, layout } = Astro.props;
   .slide-layout-5x5 {
     display: grid;
     grid-template-columns: repeat(5, 1fr);
-    grid-template-rows: repeat(4, 1fr);
+    grid-template-rows: repeat(5, 1fr);
+  }
+
+  .slide-layout-6x6 {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    grid-template-rows: repeat(6, 1fr);
   }
 
   .slide-layout-header-1x1 {
@@ -90,9 +122,33 @@ const { class: userClass, layout } = Astro.props;
     grid-template-rows: min-content 1fr;
   }
 
+  .slide-layout-header-1x1-left {
+    display: grid;
+    grid-template-columns: min-content 1fr;
+    grid-template-rows: 1fr;
+  }
+
+  .slide-layout-header-1x1-right {
+    display: grid;
+    grid-template-columns: 1fr min-content;
+    grid-template-rows: 1fr;
+  }
+
   .slide-layout-header-2x1 {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: min-content 1fr;
+  }
+
+  .slide-layout-header-2x1-asymmetric-left {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    grid-template-rows: min-content 1fr;
+  }
+
+  .slide-layout-header-2x1-asymmetric-right {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
     grid-template-rows: min-content 1fr;
   }
 

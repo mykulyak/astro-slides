@@ -6,7 +6,7 @@ import SlideTitle from "./SlideTitle.astro";
 // FIXME typographic scale for content
 ---
 
-<BaseSlide class="about-us-slide-layout">
+<BaseSlide layout="h+2x1" class="about-us-slide-layout">
   <div
     slot="background"
     class="absolute top-0 bottom-0 right-0 w-[20%] bg-[#202020]"
@@ -34,9 +34,6 @@ import SlideTitle from "./SlideTitle.astro";
 
 <style is:global>
   .about-us-slide-layout {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    grid-template-rows: min-content 1fr;
     row-gap: 50px;
     column-gap: 50px;
   }

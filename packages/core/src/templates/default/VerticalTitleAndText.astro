@@ -12,9 +12,8 @@ const { variant = "left" } = Astro.props;
 ---
 
 <BaseSlide
-  class={variant === "left"
-    ? "slide-vertical-title-and-text-left"
-    : "slide-vertical-title-and-text-right"}
+  layout={variant === "left" ? "h+1x1l" : "h+1x1r"}
+  class="vertical-title"
 >
   <div class={variant === "left" ? "" : "order-1"}>
     <slot name="title">
@@ -35,17 +34,7 @@ const { variant = "left" } = Astro.props;
 </BaseSlide>
 
 <style is:global>
-  .slide-vertical-title-and-text-left {
-    display: grid;
-    grid-template-columns: auto 1fr;
-    grid-template-rows: 1fr;
-    column-gap: 90px;
-  }
-
-  .slide-vertical-title-and-text-right {
-    display: grid;
-    grid-template-columns: 1fr auto;
-    grid-template-rows: 1fr;
+  .vertical-title {
     column-gap: 90px;
   }
 </style>
