@@ -1,7 +1,9 @@
 ---
+import type { SlideLayout } from "./slideLayout";
+
 interface Props {
   class?: string;
-  layout?: "1" | "2x2" | "h+3x1" | "h+4x1";
+  layout?: SlideLayout;
 }
 
 const { class: userClass, layout } = Astro.props;
@@ -16,8 +18,19 @@ const { class: userClass, layout } = Astro.props;
     userClass,
     layout === "1" && "slide-layout-1",
     layout === "2x2" && "slide-layout-2x2",
+    layout === "3x3" && "slide-layout-3x3",
+    layout === "3x4" && "slide-layout-3x4",
+    layout === "4x4" && "slide-layout-4x4",
+    layout === "5x4" && "slide-layout-5x4",
+    layout === "5x5" && "slide-layout-5x5",
+    layout === "h+1x1" && "slide-layout-header-1x1",
+    layout === "h+2x1" && "slide-layout-header-2x1",
     layout === "h+3x1" && "slide-layout-header-3x1",
     layout === "h+4x1" && "slide-layout-header-4x1",
+    layout === "h+5x1" && "slide-layout-header-5x1",
+    layout === "h+5x3" && "slide-layout-header-5x3",
+    layout === "fib4" && "slide-layout-fibonacci-4",
+    layout === "fib5" && "slide-layout-fibonacci-5",
   ]}
 >
   <div class="absolute w-full h-full z-[-1]">
@@ -41,15 +54,81 @@ const { class: userClass, layout } = Astro.props;
     grid-template-rows: repeat(2, 1fr);
   }
 
+  .slide-layout-3x3 {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(3, 1fr);
+  }
+
+  .slide-layout-3x4 {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(4, 1fr);
+  }
+
+  .slide-layout-4x4 {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: repeat(4, 1fr);
+  }
+
+  .slide-layout-5x4 {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    grid-template-rows: repeat(4, 1fr);
+  }
+
+  .slide-layout-5x5 {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    grid-template-rows: repeat(4, 1fr);
+  }
+
+  .slide-layout-header-1x1 {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: min-content 1fr;
+  }
+
+  .slide-layout-header-2x1 {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: min-content 1fr;
+  }
+
   .slide-layout-header-3x1 {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    grid-template-rows: repeat(4, min-content);
+    grid-template-rows: min-content 1fr;
   }
 
   .slide-layout-header-4x1 {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
-    grid-template-rows: repeat(4, min-content);
+    grid-template-rows: min-content 1fr;
+  }
+
+  .slide-layout-header-5x1 {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    grid-template-rows: min-content 1fr;
+  }
+
+  .slide-layout-header-5x3 {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    grid-template-rows: min-content repeat(3, 1fr);
+  }
+
+  .slide-layout-fibonacci-4 {
+    display: grid;
+    grid-template-columns: 1fr 1fr 2fr 3fr;
+    grid-template-rows: 1fr 1fr 2fr 3fr;
+  }
+
+  .slide-layout-fibonacci-5 {
+    display: grid;
+    grid-template-columns: 1fr 1fr 2fr 3fr 5fr;
+    grid-template-rows: 1fr 1fr 2fr 3fr 5fr;
   }
 </style>

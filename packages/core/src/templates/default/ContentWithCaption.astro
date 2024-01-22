@@ -4,7 +4,7 @@ import TextPlaceholder from "@components/placeholders/Text.astro";
 import ContentPlaceholder from "@components/placeholders/Content.astro";
 ---
 
-<BaseSlide class="content-with-caption-layout">
+<BaseSlide layout="h+2x1" class="content-with-caption-layout">
   <div class="text-[60px]">
     <slot name="title">
       <TextPlaceholder>
@@ -30,9 +30,6 @@ import ContentPlaceholder from "@components/placeholders/Content.astro";
 
 <style is:global>
   .content-with-caption-layout {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    grid-template-rows: auto 1fr;
     column-gap: 90px;
     row-gap: 20px;
   }

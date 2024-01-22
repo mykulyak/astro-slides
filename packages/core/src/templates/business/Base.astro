@@ -1,10 +1,11 @@
 ---
 import Slide from "@components/Slide.astro";
 import "./globalStyles.astro";
+import type { SlideLayout } from "@components/slideLayout";
 
 interface Props {
   class?: string;
-  layout?: "1" | "2x2" | "h+3x1" | "h+4x1"; // Slide.astro
+  layout?: SlideLayout;
 }
 
 const { class: userClass, layout } = Astro.props;
