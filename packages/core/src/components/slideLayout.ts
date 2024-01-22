@@ -62,5 +62,7 @@ export type SlideLayout =
  *
  * - `"60x20"` - 60px column, 20px row
  * - `"90x20"` - 90px column, 20px row
+ * - `"50x50"` - 50px column, 50px row
+ * - `"75x25"` - 75px column, 25px row
  */
-export type SlideSpacing = "60x20" | "90x20";
+export type SlideSpacing = "60x20" | "90x20" | "50x50" | "75x25";

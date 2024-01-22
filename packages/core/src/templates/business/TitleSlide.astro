@@ -1,10 +1,10 @@
 ---
-import BaseSlide from "./Base.astro";
+import DarkBaseSlide from "./DarkBase.astro";
 import SlideTitle from "./SlideTitle.astro";
 ---
 
-<BaseSlide layout="1" class="gap-[50px] bg-[#202020]">
+<DarkBaseSlide layout="1" layoutSpacing="50x50">
   <SlideTitle class="text-white">
     <slot name="title">This is the <em>title</em> slot</slot>
   </SlideTitle>
-</BaseSlide>
+</DarkBaseSlide>

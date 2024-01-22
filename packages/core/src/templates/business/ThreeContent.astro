@@ -5,7 +5,7 @@ import SlideTitle from "./SlideTitle.astro";
 import TextPlaceholder from "@components/placeholders/Text.astro";
 ---
 
-<BaseSlide layout="h+3x1" class="three-content-slide-layout">
+<BaseSlide layout="h+3x1" layoutSpacing="50x50">
   <SlideTitle class="col-span-3 text-center">
     <slot name="title">
       The <em>title</em> slot
@@ -64,10 +64,3 @@ import TextPlaceholder from "@components/placeholders/Text.astro";
     </slot>
   </div>
 </BaseSlide>
-
-<style is:global>
-  .three-content-slide-layout {
-    column-gap: 60px;
-    row-gap: 40px;
-  }
-</style>

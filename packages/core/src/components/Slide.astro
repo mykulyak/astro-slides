@@ -40,6 +40,8 @@ const layoutClass = layout && LAYOUT_CLASSES[layout];
 const LAYOUT_SPACING_CLASSES: Record<SlideSpacing, string> = {
   "60x20": "slide-spacing-60x20",
   "90x20": "slide-spacing-90x20",
+  "50x50": "slide-spacing-50x50",
+  "75x25": "slide-spacing-75x25",
 };
 
 const layoutSpacingClass =
@@ -212,5 +214,13 @@ const layoutSpacingClass =
 
   .slide-spacing-90x20 {
     gap: 20px 90px;
+  }
+
+  .slide-spacing-50x50 {
+    gap: 50px;
+  }
+
+  .slide-spacing-75x25 {
+    gap: 25px 75px;
   }
 </style>

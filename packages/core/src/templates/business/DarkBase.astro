@@ -1,7 +1,6 @@
 ---
-import "@components/globalStyles.astro";
-import Slide from "@components/Slide.astro";
 import type { SlideLayout, SlideSpacing } from "@components/slideLayout";
+import Base from "./Base.astro";
 
 interface Props {
   class?: string;
@@ -12,10 +11,7 @@ interface Props {
 const { class: userClass, layout, layoutSpacing } = Astro.props;
 ---
 
-<Slide
-  layout={layout}
-  layoutSpacing={layoutSpacing}
-  class={`px-[55px] pt-[80px] pb-[100px] ${userClass ? userClass : ""}`}
->
+<Base class={userClass} layout={layout} layoutSpacing={layoutSpacing}>
+  <div slot="background" class="bg-[#202020] w-full h-full"></div>
   <slot />
-</Slide>
+</Base>
