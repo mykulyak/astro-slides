@@ -1,17 +1,55 @@
 ---
 interface Props {
   class?: string;
+  layout?: "1" | "2x2" | "h+3x1" | "h+4x1";
 }
 
-const { class: userClass } = Astro.props;
+const { class: userClass, layout } = Astro.props;
 ---
 
 <section
   data-astro-slides-slide
-  class:list={["relative", "w-full h-full", userClass]}
+  class:list={[
+    "relative",
+    "w-full",
+    "h-full",
+    userClass,
+    layout === "1" && "slide-layout-1",
+    layout === "2x2" && "slide-layout-2x2",
+    layout === "h+3x1" && "slide-layout-header-3x1",
+    layout === "h+4x1" && "slide-layout-header-4x1",
+  ]}
 >
   <div class="absolute w-full h-full z-[-1]">
     <slot name="background" />
   </div>
   <slot />
 </section>
+
+<style>
+  .slide-layout-1 {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr;
+    justify-items: center;
+    align-items: center;
+  }
+
+  .slide-layout-2x2 {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(2, 1fr);
+  }
+
+  .slide-layout-header-3x1 {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(4, min-content);
+  }
+
+  .slide-layout-header-4x1 {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: repeat(4, min-content);
+  }
+</style>

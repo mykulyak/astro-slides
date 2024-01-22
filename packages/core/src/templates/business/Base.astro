@@ -4,12 +4,16 @@ import "./globalStyles.astro";
 
 interface Props {
   class?: string;
+  layout?: "1" | "2x2" | "h+3x1" | "h+4x1"; // Slide.astro
 }
 
-const { class: userClass } = Astro.props;
+const { class: userClass, layout } = Astro.props;
 ---
 
-<Slide class={`px-[100px] py-[120px] ${userClass ? userClass : ""}`}>
+<Slide
+  class={`px-[100px] py-[120px] ${userClass ? userClass : ""}`}
+  layout={layout}
+>
   <slot name="background" slot="background" />
   <slot />
 </Slide>
