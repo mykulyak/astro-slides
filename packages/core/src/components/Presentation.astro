@@ -32,8 +32,8 @@ const { initialSlide } = Astro.props;
   const DATASET_SLIDES_CURRENT = "astroSlidesCurrent";
 
   const EVENT_PREFIX = "astro-slides";
-  const EVENT_NEXT_SLIDE = `${EVENT_PREFIX}:next-slide`;
-  const EVENT_PREV_SLIDE = `${EVENT_PREFIX}:prev-slide`;
+  const EVENT_NEXT_SLIDE = `${EVENT_PREFIX}:next`;
+  const EVENT_PREV_SLIDE = `${EVENT_PREFIX}:prev`;
   const EVENT_SLIDE_CHANGED = `${EVENT_PREFIX}:slide-changed`;
 
   export class PresentationController {

@@ -1,4 +1,6 @@
 ---
+import GoNext from "./GoNext.astro";
+import GoPrev from "./GoPrev.astro";
 import type { SlideLayout, SlideSpacing } from "./slideLayout";
 
 interface Props {
@@ -65,6 +67,12 @@ const layoutSpacingClass =
     <slot name="background" />
   </div>
   <slot />
+  <div class="absolute z-50 top-[50%] left-[80px] w-[64px] h-[64px]">
+    <slot name="left_nav"><GoPrev /></slot>
+  </div>
+  <div class="absolute z-50 top-[50%] right-[80px] w-[64px] h-[64px]">
+    <slot name="right_nav"><GoNext /></slot>
+  </div>
 </section>
 
 <style>
