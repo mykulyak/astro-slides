@@ -1,0 +1,16 @@
+---
+import { Icon } from "astro-icon/components";
+---
+
+<script is:inline>
+  function emitPrevSlide() {
+    document.dispatchEvent(new CustomEvent("astro-slides:prev"));
+  }
+</script>
+
+<button
+  class="opacity-10 hover:opacity-80 transition-opacity duration-300 ease-in-out border-slate-900 border-solid border-4 rounded-full p-2"
+  onclick="window.emitPrevSlide()"
+>
+  <Icon name="arrow-left" size={60} />
+</button>

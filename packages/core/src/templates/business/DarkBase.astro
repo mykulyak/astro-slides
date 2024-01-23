@@ -1,6 +1,8 @@
 ---
 import type { SlideLayout, SlideSpacing } from "@components/slideLayout";
 import Base from "./Base.astro";
+import GoPrev from "@components/GoPrev.astro";
+import GoNext from "@components/GoNext.astro";
 
 interface Props {
   class?: string;
@@ -14,4 +16,6 @@ const { class: userClass, layout, layoutSpacing } = Astro.props;
 <Base class={userClass} layout={layout} layoutSpacing={layoutSpacing}>
   <div slot="background" class="bg-[#202020] w-full h-full"></div>
   <slot />
+  <slot name="left_nav" slot="left_nav"><GoPrev /></slot>
+  <slot name="right_nav" slot="right_nav"><GoNext /></slot>
 </Base>
