@@ -10,15 +10,6 @@
     "paths": {
       "@components/*": [
         "components/*"
-      ],
-      "@layouts/*": [
-        "layouts/*"
-      ],
-      "@templates/*": [
-        "templates/*"
-      ],
-      "@pages/*": [
-        "pages/*"
       ]
     }
   }
