@@ -1,7 +1,7 @@
 {
   "name": "@mykulyak/astro-slides",
   "version": "0.1.0",
-  "description": "Great presentations with Astro",
+  "description": "Make great presentations with Astro! 🚀",
   "main": "index.js",
   "type": "module",
   "scripts": {
@@ -24,6 +24,18 @@
   "devDependencies": {
     "typescript": "^5.3.3"
   },
+  "publishConfig": {
+    "access": "public"
+  },
+  "files": [
+    "public/",
+    "src/",
+    "astro.config.mjs",
+    "LICENSE",
+    "package.json",
+    "tailwind.config.mjs",
+    "tsconfig.json"
+  ],
   "dependencies": {
     "@astrojs/check": "^0.4.1",
     "@astrojs/tailwind": "^5.1.0",
