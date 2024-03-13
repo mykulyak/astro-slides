@@ -63,6 +63,8 @@ const { initialSlide } = Astro.props;
           document.dispatchEvent(new CustomEvent(EVENT_NEXT_SLIDE));
         }
       });
+
+      this.changeSlide();
     }
 
     changeSlide() {
